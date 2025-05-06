@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Get a Specific Kitten :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://Pluto417-Qing.github.io/kittens-specific/index.html</link>
+    <description>Get a Specific Kitten package main import &#34;github.com/bep/kittn/auth&#34; func main() { api := auth.Authorize(&#34;meowmeowmeow&#34;) _ = api.GetKitten(2) }&#xD;require &#39;kittn&#39; api = Kittn::APIClient.authorize!(&#39;meowmeowmeow&#39;) api.kittens.get(2)&#xD;import kittn api = kittn.authorize(&#39;meowmeowmeow&#39;) api.kittens.get(2)&#xD;curl &#34;http://example.com/api/kittens/2&#34; -H &#34;Authorization: meowmeowmeow&#34;&#xD;const kittn = require(&#39;kittn&#39;); let api = kittn.authorize(&#39;meowmeowmeow&#39;); let max = api.kittens.get(2);&#xD;The above command returns JSON structured like this:&#xA;{ &#34;id&#34;: 2, &#34;name&#34;: &#34;Max&#34;, &#34;breed&#34;: &#34;unknown&#34;, &#34;fluffiness&#34;: 5, &#34;cuteness&#34;: 10 }&#xD;This endpoint retrieves a specific kitten.&#xA;HTTP Request GET http://example.com/api/kittens/&lt;ID&gt;&#xA;URL Parameters Parameter Description ID The ID of the kitten to retrieve</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://Pluto417-Qing.github.io/kittens-specific/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

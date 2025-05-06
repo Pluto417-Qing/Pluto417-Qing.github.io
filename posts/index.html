@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.147.1">
+    <meta name="generator" content="Relearn 7.6.1+d7685ad3986c906cb10e62854fca7c730df4bf58">
+    <meta name="description" content="博客文章 在这里您可以找到所有的博客文章，按时间倒序排列。
+TestHello World欢迎来到我的博客 这是我的第一篇博客文章。在这里，我将会分享：
+技术心得 学习笔记 个人感悟 有趣的发现 为什么要写博客？ 写博客不仅可以记录自己的学习和成长历程，还能与他人分享知识和经验。通过写作，我们可以：
+整理思路 加深理解 分享经验 与他人交流 未来的计划 我计划定期更新博客，分享有价值的内容。如果您有任何建议或想法，欢迎与我交流！
+# 这是一个简单的示例代码 def hello_world(): print(&#34;Welcome to my blog!&#34;) hello_world()
+SVG图形绘制与展示的逻辑之前写大作业小游戏的时候就遇到过要自己找图片资源，当时第一次接触SVG图像，根本不了解，最近决定好好学习一下SVG。
+SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形，且与常见的位图不同，缩放不会影响画质。因为它是用XML描述绘制图形的方法的，而不是像位图一样直接保存图片的单个像素点。
+关键概念 画布 ：无穷大，是绘制图形的区域。 裁切层 ：控制显示区域的框，在画布上框选出特定的区域来显示。 SVG区域大小 ：大小在svg标签中设定。也是最后页面上显示图片的大小。 解释 在写SVG代码的时候一开始会创建一个SVG标签：
+&lt;svg width=&#34;400&#34; height=&#34;400&#34;&gt; &lt;/svg&gt;这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。下面先介绍SVG的一些基础的概念。
+坐标区域 SVG坐标区域的原点在左上角，向右为x轴正方向，向下为y轴正方向。 图形绘制 要绘制一个图形就很简单了，比如绘制一个矩形，只要设置它的左上角的坐标，以及长宽高即可，如何要填充颜色可以使用fill属性。
+&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;100&#34; y=&#34;100&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="博客文章 :: Pluto417-Qing&#39;s Blog">
+    <meta name="twitter:description" content="博客文章 在这里您可以找到所有的博客文章，按时间倒序排列。
+TestHello World欢迎来到我的博客 这是我的第一篇博客文章。在这里，我将会分享：
+技术心得 学习笔记 个人感悟 有趣的发现 为什么要写博客？ 写博客不仅可以记录自己的学习和成长历程，还能与他人分享知识和经验。通过写作，我们可以：
+整理思路 加深理解 分享经验 与他人交流 未来的计划 我计划定期更新博客，分享有价值的内容。如果您有任何建议或想法，欢迎与我交流！
+# 这是一个简单的示例代码 def hello_world(): print(&#34;Welcome to my blog!&#34;) hello_world()
+SVG图形绘制与展示的逻辑之前写大作业小游戏的时候就遇到过要自己找图片资源，当时第一次接触SVG图像，根本不了解，最近决定好好学习一下SVG。
+SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形，且与常见的位图不同，缩放不会影响画质。因为它是用XML描述绘制图形的方法的，而不是像位图一样直接保存图片的单个像素点。
+关键概念 画布 ：无穷大，是绘制图形的区域。 裁切层 ：控制显示区域的框，在画布上框选出特定的区域来显示。 SVG区域大小 ：大小在svg标签中设定。也是最后页面上显示图片的大小。 解释 在写SVG代码的时候一开始会创建一个SVG标签：
+&lt;svg width=&#34;400&#34; height=&#34;400&#34;&gt; &lt;/svg&gt;这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。下面先介绍SVG的一些基础的概念。
+坐标区域 SVG坐标区域的原点在左上角，向右为x轴正方向，向下为y轴正方向。 图形绘制 要绘制一个图形就很简单了，比如绘制一个矩形，只要设置它的左上角的坐标，以及长宽高即可，如何要填充颜色可以使用fill属性。
+&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;100&#34; y=&#34;100&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;">
+    <meta property="og:url" content="http://Pluto417-Qing.github.io/posts/index.html">
+    <meta property="og:site_name" content="Pluto417-Qing&#39;s Blog">
+    <meta property="og:title" content="博客文章 :: Pluto417-Qing&#39;s Blog">
+    <meta property="og:description" content="博客文章 在这里您可以找到所有的博客文章，按时间倒序排列。
+TestHello World欢迎来到我的博客 这是我的第一篇博客文章。在这里，我将会分享：
+技术心得 学习笔记 个人感悟 有趣的发现 为什么要写博客？ 写博客不仅可以记录自己的学习和成长历程，还能与他人分享知识和经验。通过写作，我们可以：
+整理思路 加深理解 分享经验 与他人交流 未来的计划 我计划定期更新博客，分享有价值的内容。如果您有任何建议或想法，欢迎与我交流！
+# 这是一个简单的示例代码 def hello_world(): print(&#34;Welcome to my blog!&#34;) hello_world()
+SVG图形绘制与展示的逻辑之前写大作业小游戏的时候就遇到过要自己找图片资源，当时第一次接触SVG图像，根本不了解，最近决定好好学习一下SVG。
+SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形，且与常见的位图不同，缩放不会影响画质。因为它是用XML描述绘制图形的方法的，而不是像位图一样直接保存图片的单个像素点。
+关键概念 画布 ：无穷大，是绘制图形的区域。 裁切层 ：控制显示区域的框，在画布上框选出特定的区域来显示。 SVG区域大小 ：大小在svg标签中设定。也是最后页面上显示图片的大小。 解释 在写SVG代码的时候一开始会创建一个SVG标签：
+&lt;svg width=&#34;400&#34; height=&#34;400&#34;&gt; &lt;/svg&gt;这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。下面先介绍SVG的一些基础的概念。
+坐标区域 SVG坐标区域的原点在左上角，向右为x轴正方向，向下为y轴正方向。 图形绘制 要绘制一个图形就很简单了，比如绘制一个矩形，只要设置它的左上角的坐标，以及长宽高即可，如何要填充颜色可以使用fill属性。
+&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;100&#34; y=&#34;100&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;">
+    <meta property="og:locale" content="zh_cn">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="博客文章 :: Pluto417-Qing&#39;s Blog">
+    <meta itemprop="description" content="博客文章 在这里您可以找到所有的博客文章，按时间倒序排列。
+TestHello World欢迎来到我的博客 这是我的第一篇博客文章。在这里，我将会分享：
+技术心得 学习笔记 个人感悟 有趣的发现 为什么要写博客？ 写博客不仅可以记录自己的学习和成长历程，还能与他人分享知识和经验。通过写作，我们可以：
+整理思路 加深理解 分享经验 与他人交流 未来的计划 我计划定期更新博客，分享有价值的内容。如果您有任何建议或想法，欢迎与我交流！
+# 这是一个简单的示例代码 def hello_world(): print(&#34;Welcome to my blog!&#34;) hello_world()
+SVG图形绘制与展示的逻辑之前写大作业小游戏的时候就遇到过要自己找图片资源，当时第一次接触SVG图像，根本不了解，最近决定好好学习一下SVG。
+SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形，且与常见的位图不同，缩放不会影响画质。因为它是用XML描述绘制图形的方法的，而不是像位图一样直接保存图片的单个像素点。
+关键概念 画布 ：无穷大，是绘制图形的区域。 裁切层 ：控制显示区域的框，在画布上框选出特定的区域来显示。 SVG区域大小 ：大小在svg标签中设定。也是最后页面上显示图片的大小。 解释 在写SVG代码的时候一开始会创建一个SVG标签：
+&lt;svg width=&#34;400&#34; height=&#34;400&#34;&gt; &lt;/svg&gt;这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。下面先介绍SVG的一些基础的概念。
+坐标区域 SVG坐标区域的原点在左上角，向右为x轴正方向，向下为y轴正方向。 图形绘制 要绘制一个图形就很简单了，比如绘制一个矩形，只要设置它的左上角的坐标，以及长宽高即可，如何要填充颜色可以使用fill属性。
+&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;100&#34; y=&#34;100&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;">
+    <meta itemprop="datePublished" content="2025-05-06T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2025-05-06T00:00:00+00:00">
+    <meta itemprop="wordCount" content="111">
+    <title>博客文章 :: Pluto417-Qing&#39;s Blog</title>
+    <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="博客文章 :: Pluto417-Qing&#39;s Blog">
+    <link href="/posts/index.print.html" rel="alternate" type="text/html" title="博客文章 :: Pluto417-Qing&#39;s Blog">
+    <link href="/images/logo.svg?1746547208" rel="icon" type="image/svg+xml">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1746547208" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1746547208" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1746547208" rel="stylesheet">
+    <link href="/css/theme.min.css?1746547208" rel="stylesheet">
+    <link href="/css/format-html.min.css?1746547208" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1746547208" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1746547208" defer></script>
+    <script src="/js/lunr/lunr.min.js?1746547208" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1746547208" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1746547208" defer></script>
+    <script src="/js/lunr/lunr.zh.min.js?1746547208" defer></script>
+    <script src="/js/search.min.js?1746547208" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = `.min`;
+      window.relearn.path='\/posts\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='http:\/\/Pluto417-Qing.github.io';
+      window.relearn.contentLangs=['zh'];
+      window.relearn.index_js_url="/searchindex.zh-cn.js?1746547208";
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // variant stuff
+      window.relearn.themevariants = [ 'auto', 'relearn-light', 'relearn-dark' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+      // translations
+      window.T_Copy_to_clipboard = `复制到剪贴板`;
+      window.T_Copied_to_clipboard = `复制到剪贴板！`;
+      window.T_Copy_link_to_clipboard = `将链接复制到剪贴板`;
+      window.T_Link_copied_to_clipboard = `链接复制到剪贴板！`;
+      window.T_Reset_view = `重置视图`;
+      window.T_View_reset = `查看重置！`;
+      window.T_No_results_found = `找不到"{0}"的结果`;
+      window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
+    </script>
+    <link href="/css/custom.css?1746547208" rel="stylesheet">
+  </head>
+  <body class="mobile-support html" data-url="/posts/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="导航 (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="目录 (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#博客文章">博客文章</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/index.html"><span itemprop="name">Hello World</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">博客文章</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/index.print.html" title="打印整章 (CTRL+ALT+p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/index.html" title="Hello World (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/posts/he2/index.html" title="Test (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="更多"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable posts" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="博客文章">博客文章</h1>
+
+<h3 id="博客文章">博客文章</h3>
+<p>在这里您可以找到所有的博客文章，按时间倒序排列。</p>
+<ul class="children children-li children-sort-weight">
+  <li class="children-title"><a href="/posts/he2/index.html">Test</a></li>
+  <li class="children-title"><a href="/posts/hello_world/index.html">Hello World</a><p><h2 id="欢迎来到我的博客">欢迎来到我的博客</h2>
+<p>这是我的第一篇博客文章。在这里，我将会分享：</p>
+<ul>
+<li>技术心得</li>
+<li>学习笔记</li>
+<li>个人感悟</li>
+<li>有趣的发现</li>
+</ul>
+<h3 id="为什么要写博客">为什么要写博客？</h3>
+<p>写博客不仅可以记录自己的学习和成长历程，还能与他人分享知识和经验。通过写作，我们可以：</p>
+<ol>
+<li>整理思路</li>
+<li>加深理解</li>
+<li>分享经验</li>
+<li>与他人交流</li>
+</ol>
+<h3 id="未来的计划">未来的计划</h3>
+<p>我计划定期更新博客，分享有价值的内容。如果您有任何建议或想法，欢迎与我交流！</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 这是一个简单的示例代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Welcome to my blog!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">hello_world</span><span class="p">()</span></span></span></code></pre></div></p></li>
+  <li class="children-title"><a href="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html">SVG图形绘制与展示的逻辑</a><p><p>之前写大作业小游戏的时候就遇到过要自己找图片资源，当时第一次接触SVG图像，根本不了解，最近决定好好学习一下SVG。</p>
+<p>SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形，且与常见的位图不同，缩放不会影响画质。因为它是用XML描述绘制图形的方法的，而不是像位图一样直接保存图片的单个像素点。</p>
+<h4 id="关键概念">关键概念</h4>
+<ol>
+<li>画布 ：无穷大，是绘制图形的区域。</li>
+<li>裁切层 ：控制显示区域的框，在画布上框选出特定的区域来显示。</li>
+<li>SVG区域大小 ：大小在svg标签中设定。也是最后页面上显示图片的大小。</li>
+</ol>
+<h4 id="解释">解释</h4>
+<p>在写SVG代码的时候一开始会创建一个SVG标签：</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;400&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;400&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
+<p>这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。下面先介绍SVG的一些基础的概念。</p>
+<h4 id="坐标区域">坐标区域</h4>
+<p>SVG坐标区域的原点在左上角，向右为x轴正方向，向下为y轴正方向。
+<a href="#R-image-7130fca302134abd19cf1222d5739bfb" class="lightbox-link"><img alt="坐标区域" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506135205.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7130fca302134abd19cf1222d5739bfb"><img alt="坐标区域" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506135205.png"></a></p>
+<h4 id="图形绘制">图形绘制</h4>
+<p>要绘制一个图形就很简单了，比如绘制一个矩形，只要设置它的左上角的坐标，以及长宽高即可，如何要填充颜色可以使用fill属性。</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
+<p><a href="#R-image-5fbbb4779fe19e5d8e8129c0c6b80b0c" class="lightbox-link"><img alt="示例1" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142545.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5fbbb4779fe19e5d8e8129c0c6b80b0c"><img alt="示例1" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142545.png"></a></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
+<p><a href="#R-image-4e8248b30dc90323945d0c944d1c2e8e" class="lightbox-link"><img alt="示例2" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142716.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4e8248b30dc90323945d0c944d1c2e8e"><img alt="示例2" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142716.png"></a></p>
+<p>可以看到因为默认的裁切层区域与svg区域大小是一样的，且左上角在原点处。</p>
+<h4 id="设置裁切层">设置裁切层</h4>
+<p>上面的代码绘制了两个矩形，但是只显示一个矩形，另一个矩形在裁切层之外，所以默认是不显示的。那么如何同时显示两个矩形呢？可以设置裁切层的位置，把两个矩形都框住。使用viewBox属性来设置裁切层的位置和大小。</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 300 300&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
+<p><a href="#R-image-28342df182e0a428d13520caafa77fdf" class="lightbox-link"><img alt="示例3" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506143054.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-28342df182e0a428d13520caafa77fdf"><img alt="示例3" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506143054.png"></a></p></p></li>
+</ul>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-calendar'></i> May 6, 2025
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<div id="logo">
+    <img src="/images/avatar.jpg" alt="Pluto417-Qing&#39;s Blog" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+<div class="brand">Pluto417-Qing&#39;s Blog</div> 
+        </div>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="搜索 (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">搜索</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="搜索...">
+            <button class="search-clear" type="button" data-search-clear="" title="清除搜索"><i class="fas fa-times" title="清除搜索"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="active parent " data-nav-id="/posts/index.html"><a class="padding" href="/posts/index.html">博客文章</a><ul id="R-subsections-b4e55eb7e39db1aee6d02808a2267090" class="collapsible-menu">
+            <li class="" data-nav-id="/posts/he2/index.html"><a class="padding" href="/posts/he2/index.html">Test</a></li>
+            <li class="" data-nav-id="/posts/hello_world/index.html"><a class="padding" href="/posts/hello_world/index.html">Hello World</a></li>
+            <li class="" data-nav-id="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html"><a class="padding" href="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html">SVG图形绘制与展示的逻辑</a></li></ul></li>
+            <li class="" data-nav-id="/main.nn/index.html"><a class="padding" href="/main.nn/index.html">API</a></li>
+            <li class="" data-nav-id="/main/index.html"><a class="padding" href="/main/index.html">API Reference</a></li>
+            <li class="" data-nav-id="/kittens/index.html"><a class="padding" href="/kittens/index.html">Kittens</a></li>
+            <li class="" data-nav-id="/kittens-specific/index.html"><a class="padding" href="/kittens-specific/index.html">Get a Specific Kitten</a></li>
+            <li class="" data-nav-id="/errors/index.html"><a class="padding" href="/errors/index.html">Errors</a></li>
+            <li class="" data-nav-id="/errors.nn/index.html"><a class="padding" href="/errors.nn/index.html">Feil</a></li>
+            <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">关于我</a></li>
+            <li class="" data-nav-id="/post/index.html"><a class="padding" href="/post/index.html">Posts</a></li>
+            <li class="" data-nav-id="/archives/index.html"><a class="padding" href="/archives/index.html">文章存档</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <div class="nav-title padding">更多</div>
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="https://github.com/Pluto417-Qing"><a class="padding" href="https://github.com/Pluto417-Qing" rel="external" target="_blank"><i class='fab fa-github'></i> GitHub</a></li>
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+            <li class="R-variantswitcher">
+              <div class="padding menu-control">
+                <i class="fa-fw fas fa-paint-brush"></i>
+                <span>&nbsp;</span>
+                <div class="control-style">
+                  <label class="a11y-only" for="R-select-variant">主题</label>
+                  <select id="R-select-variant">
+                    <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    <option id="R-select-variant-relearn-light" value="relearn-light">Relearn Light</option>
+                    <option id="R-select-variant-relearn-dark" value="relearn-dark">Relearn Dark</option>
+                  </select>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <script>window.relearn.markVariant();</script>
+            </li>
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="/js/clipboard/clipboard.min.js?1746547208" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1746547208" defer></script>
+    <script src="/js/js-yaml/js-yaml.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-color.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1746547208" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1746547208" defer></script>
+    <script src="/js/mermaid/mermaid.min.js?1746547208" defer></script>
+    <script>
+      window.relearn.themeUseMermaid = JSON.parse("{}");
+    </script>
+    <script src="/js/theme.min.js?1746547208" defer></script>
+  </body>
+</html>

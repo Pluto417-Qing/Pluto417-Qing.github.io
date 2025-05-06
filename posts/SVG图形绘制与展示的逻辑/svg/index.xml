@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>http://localhost:1313/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/svg/index.html</link>
+    <description>SVG图形绘制与展示的逻辑 关键概念 画布 ：无穷大，是绘制图形的区域。 裁切层 ：控制显示区域的框，在画布上框选出特定的区域来显示。 SVG区域大小 ：大小在svg标签中设定。也是最后页面上显示图片的大小。 解释 在写SVG代码的时候一开始会创建一个SVG标签：&#xA;&lt;svg width=&#34;400&#34; height=&#34;400&#34;&gt; &lt;/svg&gt;&#xD;这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。&#xA;坐标区域 设置裁切层 上面的代码绘制了两个矩形，但是只显示一个矩形，另一个矩形在裁切层之外，所以默认是不显示的。那么如何同时显示两个矩形呢？可以设置裁切层的位置，把两个矩形都框住。使用viewBox属性来设置裁切层的位置和大小。&#xA;&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 300 300&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&#xD;下面分两种情况讨论：&#xA;svg区域与裁切层的长宽比相同时，通过等比例缩放来使裁切层与svg区域重合，很简单，不单独讨论。 长宽比不同时，有两种填充方式，且通过一个属性来控制。 svg区域与裁切层的长宽比不相同 填满：裁切层完全覆盖svg区域，通过等比列缩放实现，这时裁切层内的内容不一定完全在svg区域内。比如下图中红色为svg区域，绿色为裁切层。填充时会将裁切层等比例放大知道能完全盖住svg区域。可以看到部分裁切层的内容不在svg区域内，最后不能显示。 完整展示：确保裁切层内容能完全处于svg区域内。且某一个方向铺满。比如上面同样的情况，会把裁切层区域先缩小，然后平移到svg区域使上下方向铺满，至于对齐方式也可以控制. 上述两种填充方式以及对齐都是通过属性preserveAspectRatio来控制的。 对齐控制的值：xMinYMin，xMinYMax，xMaxYMax，xMaxYMin，xMinYMid，xMaxYMid，xMidYMid，xMidYMin，xMidYMax 平铺：slice(铺满) ，meet(裁切层全入) 默认：xMidYMid meet</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/svg/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

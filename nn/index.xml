@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DocuAPI-døme</title>
+    <link>http://localhost:1313/nn/</link>
+    <description>Recent content on DocuAPI-døme</description>
+    <generator>Hugo</generator>
+    <language>nn</language>
+    <atom:link href="http://localhost:1313/nn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API</title>
+      <link>http://localhost:1313/nn/main/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nn/main/</guid>
+      <description>&lt;h1 id=&#34;innleiing&#34;&gt;Innleiing&lt;/h1&gt;&#xA;&lt;p&gt;Velkomen skal du vere til Kittn API! Du kan bruke vårt API til å kalle våre Kittn endepunkt. Her kan du hente ut ymse informasjon om kattar, kattungar og ulike rasar frå vår database.&lt;/p&gt;&#xA;&lt;p&gt;Her finn du kodedøme i Shell, Ruby, Python og Go! Du ser desse døma i det mørke feltet til høgre på skjermen &amp;ndash; og du kan byta programmeringsspråk ved å klikke på menyen oppe til høgre.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Feil</title>
+      <link>http://localhost:1313/nn/errors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nn/errors/</guid>
+      <description>&lt;h1 id=&#34;feil&#34;&gt;Feil&lt;/h1&gt;&#xA;&lt;aside class=&#34;notice&#34;&gt;Denne seksjonen om feil er lagra i éiga fil, errors.md. DocuAPI let deg dele dokumentasjonen inn i så mange filer som du måtte ynskje. Filene blir henta inn i standard Hugo-rekkjefølgje. Den lettaste måten å styre denne rekkjefølgja er å sette vekt på kvar side, t.d. `weight=10` Sidene med lågast vekt blir vist først.&lt;/aside&gt;&#xD;&#xA;&lt;p&gt;Kittn-APIet tek i bruk følgjande feilkodar:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Feilkode&lt;/th&gt;&#xA;          &lt;th&gt;Forklaring&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;400&lt;/td&gt;&#xA;          &lt;td&gt;Bad Request &amp;ndash; Din førespurnad har forbetringspotensiale&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;401&lt;/td&gt;&#xA;          &lt;td&gt;Unauthorized &amp;ndash; Feil API-nøkkel&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;403&lt;/td&gt;&#xA;          &lt;td&gt;Forbidden &amp;ndash; Denne kattungen er berre tilgjengeleg for administratorar&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;404&lt;/td&gt;&#xA;          &lt;td&gt;Not Found &amp;ndash; Denne kattungen vart ikkje funnen&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;405&lt;/td&gt;&#xA;          &lt;td&gt;Method Not Allowed &amp;ndash; Du prøvde å få tak i kattungen på ein snodig og ulovleg måte&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;406&lt;/td&gt;&#xA;          &lt;td&gt;Not Acceptable &amp;ndash; Du bad om eit format som ikkje er  JSON&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;410&lt;/td&gt;&#xA;          &lt;td&gt;Gone &amp;ndash; Kattungen har rømt frå serveren.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;418&lt;/td&gt;&#xA;          &lt;td&gt;I&amp;rsquo;m a teapot&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;429&lt;/td&gt;&#xA;          &lt;td&gt;Too Many Requests &amp;ndash; Du spør om for mange kattungar, ta det med ro!&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;500&lt;/td&gt;&#xA;          &lt;td&gt;Internal Server Error &amp;ndash; Me har eit problem med serveren. Prøv igjen seinare.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;503&lt;/td&gt;&#xA;          &lt;td&gt;Service Unavailable &amp;ndash; Me er nede for vedlikehald. Prøv igjen seinare.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
+    </item>
+  </channel>
+</rss>

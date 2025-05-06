@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>类别 :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://Pluto417-Qing.github.io/categories/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://Pluto417-Qing.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>类别 :: 随笔</title>
+      <link>http://Pluto417-Qing.github.io/categories/%E9%9A%8F%E7%AC%94/index.html</link>
+      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://Pluto417-Qing.github.io/categories/%E9%9A%8F%E7%AC%94/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

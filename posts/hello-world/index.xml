@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello World :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://localhost:1313/posts/hello-world/index.html</link>
+    <description>欢迎来到我的博客 这是我的第一篇博客文章。在这里，我将会分享：&#xA;技术心得 学习笔记 个人感悟 有趣的发现 为什么要写博客？ 写博客不仅可以记录自己的学习和成长历程，还能与他人分享知识和经验。通过写作，我们可以：&#xA;整理思路 加深理解 分享经验 与他人交流 未来的计划 我计划定期更新博客，分享有价值的内容。如果您有任何建议或想法，欢迎与我交流！&#xA;# 这是一个简单的示例代码 def hello_world(): print(&#34;Welcome to my blog!&#34;) hello_world()</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/hello-world/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
