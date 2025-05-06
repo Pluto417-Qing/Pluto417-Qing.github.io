@@ -9,54 +9,6 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Hello World",
-    "content": "Innleiing Velkomen skal du vere til Kittn API! Du kan bruke vårt API til å kalle våre Kittn endepunkt. Her kan du hente ut ymse informasjon om kattar, kattungar og ulike rasar frå vår database.\nHer finn du kodedøme i Shell, Ruby, Python og Go! Du ser desse døma i det mørke feltet til høgre på skjermen – og du kan byta programmeringsspråk ved å klikke på menyen oppe til høgre.\nDenne API-dokumentasjonen vart laga med DocuAPI, eit tema for den statiske nettstadsmakaren Hugo.\nAutentisering For å autentisere ein brukar, bruk denne koden:\npackage main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") // Just to make it compile _ = api }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow')\rimport kittn api = kittn.authorize('meowmeowmeow')\r# With shell, you can just pass the correct header with each request curl \"api_endpoint_here\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow');\rGjer vel og erstatt meowmeowmeow med din eigen API-nøkkel.\nKittn tek i bruk API-nøklar for å gi tilgang til APIet. Du kan kan registrere deg for å få ein slik nøkkel på vår utviklarportal.\nKittn forventar at API-nøkkelen er med i alle API-førespurnader til serveren i ein header som ser slik ut:\nAuthorization: meowmeowmeow\nKattungar Hent alle kattungane package main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") _ = api.GetKittens() }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow') api.kittens.get\rimport kittn api = kittn.authorize('meowmeowmeow') api.kittens.get()\rcurl \"http://example.com/api/kittens\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow'); let kittens = api.kittens.get();\rProgrammet over gir ein JSON-struktur som ser slik ut:\n[ { \"id\": 1, \"name\": \"Fluffums\", \"breed\": \"calico\", \"fluffiness\": 6, \"cuteness\": 7 }, { \"id\": 2, \"name\": \"Max\", \"breed\": \"unknown\", \"fluffiness\": 5, \"cuteness\": 10 } ]\rDette endepunktet leverer alle kattungar.\nHTTP-førespurnad GET http://example.com/api/kittens\nQuery-parametrar Parameter Standardverdi Skildring include_cats false Set til true for å få alle kattar. available true Set til false for å ta med kattar som allereie er blitt adoptert vekk. Hent éin kattunge package main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") _ = api.GetKitten(2) }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow') api.kittens.get(2)\rimport kittn api = kittn.authorize('meowmeowmeow') api.kittens.get(2)\rcurl \"http://example.com/api/kittens/2\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow'); let max = api.kittens.get(2);\rProgrammet over gir ein JSON-struktur som ser slik ut:\n{ \"id\": 2, \"name\": \"Max\", \"breed\": \"unknown\", \"fluffiness\": 5, \"cuteness\": 10 }\rDette endepunktet hentar ut éin spesifikk kattunge.\nHTTP-førespurnad GET http://example.com/kittens/\u003cID\u003e\nURL-parametrar Parameter Skildring ID IDen til kattungen du ynskjer å hente",
-    "description": "Innleiing Velkomen skal du vere til Kittn API! Du kan bruke vårt API til å kalle våre Kittn endepunkt. Her kan du hente ut ymse informasjon om kattar, kattungar og ulike rasar frå vår database.\nHer finn du kodedøme i Shell, Ruby, Python og Go! Du ser desse døma i det mørke feltet til høgre på skjermen – og du kan byta programmeringsspråk ved å klikke på menyen oppe til høgre.",
-    "tags": [],
-    "title": "API",
-    "uri": "/main.nn/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "Introduction Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.\nWe have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.\nThis example API documentation page was created with DocuAPI, a multilingual documentation theme for the static site generator Hugo.\nAuthentication To authorize, use this code:\npackage main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") // Just to make it compile _ = api }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow')\rimport kittn api = kittn.authorize('meowmeowmeow')\r# With shell, you can just pass the correct header with each request curl \"api_endpoint_here\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow');\rMake sure to replace meowmeowmeow with your API key.\nKittn uses API keys to allow access to the API. You can register a new Kittn API key at our developer portal.\nKittn expects for the API key to be included in all API requests to the server in a header that looks like the following:\nAuthorization: meowmeowmeow",
-    "description": "Introduction Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.\nWe have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.\nThis example API documentation page was created with DocuAPI, a multilingual documentation theme for the static site generator Hugo.",
-    "tags": [],
-    "title": "API Reference",
-    "uri": "/main/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "Kittens Get All Kittens package main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") _ = api.GetKittens() }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow') api.kittens.get\rimport kittn api = kittn.authorize('meowmeowmeow') api.kittens.get()\rcurl \"http://example.com/api/kittens\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow'); let kittens = api.kittens.get();\rThe above command returns JSON structured like this:\n[ { \"id\": 1, \"name\": \"Fluffums\", \"breed\": \"calico\", \"fluffiness\": 6, \"cuteness\": 7 }, { \"id\": 2, \"name\": \"Max\", \"breed\": \"unknown\", \"fluffiness\": 5, \"cuteness\": 10 } ]\rThis endpoint retrieves all kittens.\nHTTP Request GET http://example.com/api/kittens\nQuery Parameters Parameter Default Description include_cats false If set to true, the result will also include cats. available true If set to false, the result will include kittens that have already been adopted.",
-    "description": "Kittens Get All Kittens package main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") _ = api.GetKittens() }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow') api.kittens.get\rimport kittn api = kittn.authorize('meowmeowmeow') api.kittens.get()\rcurl \"http://example.com/api/kittens\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow'); let kittens = api.kittens.get();\rThe above command returns JSON structured like this:\n[ { \"id\": 1, \"name\": \"Fluffums\", \"breed\": \"calico\", \"fluffiness\": 6, \"cuteness\": 7 }, { \"id\": 2, \"name\": \"Max\", \"breed\": \"unknown\", \"fluffiness\": 5, \"cuteness\": 10 } ]\rThis endpoint retrieves all kittens.\nHTTP Request GET http://example.com/api/kittens\nQuery Parameters Parameter Default Description include_cats false If set to true, the result will also include cats. available true If set to false, the result will include kittens that have already been adopted.",
-    "tags": [],
-    "title": "Kittens",
-    "uri": "/kittens/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "Get a Specific Kitten package main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") _ = api.GetKitten(2) }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow') api.kittens.get(2)\rimport kittn api = kittn.authorize('meowmeowmeow') api.kittens.get(2)\rcurl \"http://example.com/api/kittens/2\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow'); let max = api.kittens.get(2);\rThe above command returns JSON structured like this:\n{ \"id\": 2, \"name\": \"Max\", \"breed\": \"unknown\", \"fluffiness\": 5, \"cuteness\": 10 }\rThis endpoint retrieves a specific kitten.\nHTTP Request GET http://example.com/api/kittens/\u003cID\u003e\nURL Parameters Parameter Description ID The ID of the kitten to retrieve",
-    "description": "Get a Specific Kitten package main import \"github.com/bep/kittn/auth\" func main() { api := auth.Authorize(\"meowmeowmeow\") _ = api.GetKitten(2) }\rrequire 'kittn' api = Kittn::APIClient.authorize!('meowmeowmeow') api.kittens.get(2)\rimport kittn api = kittn.authorize('meowmeowmeow') api.kittens.get(2)\rcurl \"http://example.com/api/kittens/2\" -H \"Authorization: meowmeowmeow\"\rconst kittn = require('kittn'); let api = kittn.authorize('meowmeowmeow'); let max = api.kittens.get(2);\rThe above command returns JSON structured like this:\n{ \"id\": 2, \"name\": \"Max\", \"breed\": \"unknown\", \"fluffiness\": 5, \"cuteness\": 10 }\rThis endpoint retrieves a specific kitten.\nHTTP Request GET http://example.com/api/kittens/\u003cID\u003e\nURL Parameters Parameter Description ID The ID of the kitten to retrieve",
-    "tags": [],
-    "title": "Get a Specific Kitten",
-    "uri": "/kittens-specific/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "Errors The Kittn API uses the following error codes:\n4xx Error Code Meaning 400 Bad Request – Your request sucks 401 Unauthorized – Your API key is wrong 403 Forbidden – The kitten requested is hidden for administrators only 404 Not Found – The specified kitten could not be found 405 Method Not Allowed – You tried to access a kitten with an invalid method 406 Not Acceptable – You requested a format that isn’t json 410 Gone – The kitten requested has been removed from our servers 418 I’m a teapot 429 Too Many Requests – You’re requesting too many kittens! Slow down! 5xx Error Code Meaning 500 Internal Server Error – We had a problem with our server. Try again later. 503 Service Unavailable – We’re temporarily offline for maintenance. Please try again later.",
-    "description": "Errors The Kittn API uses the following error codes:\n4xx Error Code Meaning 400 Bad Request – Your request sucks 401 Unauthorized – Your API key is wrong 403 Forbidden – The kitten requested is hidden for administrators only 404 Not Found – The specified kitten could not be found 405 Method Not Allowed – You tried to access a kitten with an invalid method 406 Not Acceptable – You requested a format that isn’t json 410 Gone – The kitten requested has been removed from our servers 418 I’m a teapot 429 Too Many Requests – You’re requesting too many kittens! Slow down! 5xx Error Code Meaning 500 Internal Server Error – We had a problem with our server. Try again later. 503 Service Unavailable – We’re temporarily offline for maintenance. Please try again later.",
-    "tags": [],
-    "title": "Errors",
-    "uri": "/errors/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "Feil Kittn-APIet tek i bruk følgjande feilkodar:\nFeilkode Forklaring 400 Bad Request – Din førespurnad har forbetringspotensiale 401 Unauthorized – Feil API-nøkkel 403 Forbidden – Denne kattungen er berre tilgjengeleg for administratorar 404 Not Found – Denne kattungen vart ikkje funnen 405 Method Not Allowed – Du prøvde å få tak i kattungen på ein snodig og ulovleg måte 406 Not Acceptable – Du bad om eit format som ikkje er JSON 410 Gone – Kattungen har rømt frå serveren. 418 I’m a teapot 429 Too Many Requests – Du spør om for mange kattungar, ta det med ro! 500 Internal Server Error – Me har eit problem med serveren. Prøv igjen seinare. 503 Service Unavailable – Me er nede for vedlikehald. Prøv igjen seinare.",
-    "description": "Feil Kittn-APIet tek i bruk følgjande feilkodar:\nFeilkode Forklaring 400 Bad Request – Din førespurnad har forbetringspotensiale 401 Unauthorized – Feil API-nøkkel 403 Forbidden – Denne kattungen er berre tilgjengeleg for administratorar 404 Not Found – Denne kattungen vart ikkje funnen 405 Method Not Allowed – Du prøvde å få tak i kattungen på ein snodig og ulovleg måte 406 Not Acceptable – Du bad om eit format som ikkje er JSON 410 Gone – Kattungen har rømt frå serveren. 418 I’m a teapot 429 Too Many Requests – Du spør om for mange kattungar, ta det med ro! 500 Internal Server Error – Me har eit problem med serveren. Prøv igjen seinare. 503 Service Unavailable – Me er nede for vedlikehald. Prøv igjen seinare.",
-    "tags": [],
-    "title": "Feil",
-    "uri": "/errors.nn/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
     "content": "",
     "description": "",
     "tags": [],
@@ -143,21 +95,5 @@ var relearn_searchindex = [
     "tags": [],
     "title": "SVG图形绘制与展示的逻辑",
     "uri": "/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Posts",
-    "uri": "/post/index.html"
-  },
-  {
-    "breadcrumb": "Hello World",
-    "content": "",
-    "description": "archives",
-    "tags": [],
-    "title": "文章存档",
-    "uri": "/archives/index.html"
   }
 ]
