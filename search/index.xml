@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>搜索 :: Pluto417-Qing&#39;s Blog</title>
-    <link>http://Pluto417-Qing.github.io/search/index.html</link>
+    <link>https://pluto417-qing.github.io/search/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <atom:link href="http://Pluto417-Qing.github.io/search/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pluto417-qing.github.io/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

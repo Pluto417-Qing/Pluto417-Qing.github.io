@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="print">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.147.1">
@@ -24,7 +24,7 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
 &lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;100&#34; y=&#34;100&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;可以看到因为默认的裁切层区域与svg区域大小是一样的，且左上角在原点处。
 设置裁切层 上面的代码绘制了两个矩形，但是只显示一个矩形，另一个矩形在裁切层之外，所以默认是不显示的。那么如何同时显示两个矩形呢？可以设置裁切层的位置，把两个矩形都框住。使用viewBox属性来设置裁切层的位置和大小。
 &lt;svg width=&#34;200&#34; height=&#34;200&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 300 300&#34;&gt; &lt;rect x=&#34;0&#34; y=&#34;0&#34; width=&#34;100&#34; height=&#34;50&#34; fill=&#34;blue&#34; /&gt; &lt;rect x=&#34;200&#34; y=&#34;200&#34; width=&#34;80&#34; height=&#34;30&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;">
-    <meta property="og:url" content="http://Pluto417-Qing.github.io/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html">
+    <meta property="og:url" content="http://localhost:1313/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html">
     <meta property="og:site_name" content="Pluto417-Qing&#39;s Blog">
     <meta property="og:title" content="SVG图形绘制与展示的逻辑 :: Pluto417-Qing&#39;s Blog">
     <meta property="og:description" content="之前写大作业小游戏的时候就遇到过要自己找图片资源，当时第一次接触SVG图像，根本不了解，最近决定好好学习一下SVG。
@@ -53,30 +53,30 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
     <meta itemprop="dateModified" content="2024-01-01T00:00:00+00:00">
     <meta itemprop="wordCount" content="98">
     <title>SVG图形绘制与展示的逻辑 :: Pluto417-Qing&#39;s Blog</title>
-    <link href="http://Pluto417-Qing.github.io/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html" rel="canonical" type="text/html" title="SVG图形绘制与展示的逻辑 :: Pluto417-Qing&#39;s Blog">
+    <link href="http://localhost:1313/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html" rel="canonical" type="text/html" title="SVG图形绘制与展示的逻辑 :: Pluto417-Qing&#39;s Blog">
     <link href="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.xml" rel="alternate" type="application/rss+xml" title="SVG图形绘制与展示的逻辑 :: Pluto417-Qing&#39;s Blog">
-    <link href="/images/logo.svg?1746548857" rel="icon" type="image/svg+xml">
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1746548857" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1746548857" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1746548857" rel="stylesheet">
-    <link href="/css/theme.min.css?1746548857" rel="stylesheet">
-    <link href="/css/format-print.min.css?1746548857" rel="stylesheet" id="R-format-style">
-    <link href="/css/auto-complete/auto-complete.min.css?1746548857" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1746548857" defer></script>
-    <script src="/js/lunr/lunr.min.js?1746548857" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1746548857" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1746548857" defer></script>
-    <script src="/js/lunr/lunr.zh.min.js?1746548857" defer></script>
-    <script src="/js/search.min.js?1746548857" defer></script>
+    <link href="/images/logo.svg?1746549094" rel="icon" type="image/svg+xml">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1746549094" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1746549094" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1746549094" rel="stylesheet">
+    <link href="/css/theme.css?1746549094" rel="stylesheet">
+    <link href="/css/format-print.css?1746549094" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1746549094" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1746549094" defer></script>
+    <script src="/js/lunr/lunr.min.js?1746549094" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1746549094" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1746549094" defer></script>
+    <script src="/js/lunr/lunr.zh.min.js?1746549094" defer></script>
+    <script src="/js/search.js?1746549094" defer></script>
     <script>
       window.relearn = window.relearn || {};
       // configuration
-      window.relearn.min = `.min`;
+      window.relearn.min = ``;
       window.relearn.path='\/posts\/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91\/index.html';
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
-      window.relearn.absBaseUri='http:\/\/Pluto417-Qing.github.io';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
       window.relearn.contentLangs=['zh'];
-      window.relearn.index_js_url="/searchindex.zh-cn.js?1746548857";
+      window.relearn.index_js_url="/searchindex.zh-cn.js?1746549094";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       window.relearn.disableInlineCopyToClipboard=false;
@@ -122,7 +122,7 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
       window.T_No_results_found = `找不到"{0}"的结果`;
       window.T_N_results_found = `为"{0}"找到 {1} 个结果`;
     </script>
-    <link href="/css/custom.css?1746548857" rel="stylesheet">
+    <link href="/css/custom.css?1746549094" rel="stylesheet">
   </head>
   <body class="mobile-support print" data-url="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/index.html">
     <div id="R-body" class="default-animation">
@@ -187,22 +187,22 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
 <p>这个就是要显示的SVG区域的大小。而SVG图形的绘制是在画布上进行的，这个画布我们是看不见的，同时画布有无穷大。我们可以在画布上绘制任意的图形，但是最后显示的SVG图片大小是固定的，当画布上绘制的图形大小与SVG区域大小不一致时，我们怎么控制显示画布上哪一部分呢？这时候就要用到裁切层来在画布上选择特定的区域来显示。下面先介绍SVG的一些基础的概念。</p>
 <h4 id="坐标区域">坐标区域</h4>
 <p>SVG坐标区域的原点在左上角，向右为x轴正方向，向下为y轴正方向。
-<a href="#R-image-df0ac0d796dd6144a31e434f19f13752" class="lightbox-link"><img alt="坐标区域" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506135205.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-df0ac0d796dd6144a31e434f19f13752"><img alt="坐标区域" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506135205.png"></a></p>
+<a href="#R-image-9e4c32a2350f2feb4c985ca9a58999a3" class="lightbox-link"><img alt="坐标区域" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506135205.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9e4c32a2350f2feb4c985ca9a58999a3"><img alt="坐标区域" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506135205.png"></a></p>
 <h4 id="图形绘制">图形绘制</h4>
 <p>要绘制一个图形就很简单了，比如绘制一个矩形，只要设置它的左上角的坐标，以及长宽高即可，如何要填充颜色可以使用fill属性。</p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
-<p><a href="#R-image-503703088e15f9a9fda5151509fd8d17" class="lightbox-link"><img alt="示例1" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142545.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-503703088e15f9a9fda5151509fd8d17"><img alt="示例1" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142545.png"></a></p>
+<p><a href="#R-image-d096c2d101f44a1854966ffbe068377c" class="lightbox-link"><img alt="示例1" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142545.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d096c2d101f44a1854966ffbe068377c"><img alt="示例1" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142545.png"></a></p>
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
-<p><a href="#R-image-c44d658e64f5b7a0148e7da970679653" class="lightbox-link"><img alt="示例2" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142716.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c44d658e64f5b7a0148e7da970679653"><img alt="示例2" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142716.png"></a></p>
+<p><a href="#R-image-51e2c0843a5c8b1bbd4edc7035f1f1a4" class="lightbox-link"><img alt="示例2" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142716.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-51e2c0843a5c8b1bbd4edc7035f1f1a4"><img alt="示例2" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506142716.png"></a></p>
 <p>可以看到因为默认的裁切层区域与svg区域大小是一样的，且左上角在原点处。</p>
 <h4 id="设置裁切层">设置裁切层</h4>
 <p>上面的代码绘制了两个矩形，但是只显示一个矩形，另一个矩形在裁切层之外，所以默认是不显示的。那么如何同时显示两个矩形呢？可以设置裁切层的位置，把两个矩形都框住。使用viewBox属性来设置裁切层的位置和大小。</p>
@@ -210,8 +210,8 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;blue&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span></span></span></code></pre></div>
-<p><a href="#R-image-283c662ddb4f3c203d8b3d85c08f5bb2" class="lightbox-link"><img alt="示例3" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506143054.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-283c662ddb4f3c203d8b3d85c08f5bb2"><img alt="示例3" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506143054.png"></a></p>
+<p><a href="#R-image-da3bd47c4eebd87b233b40d4ba350628" class="lightbox-link"><img alt="示例3" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506143054.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-da3bd47c4eebd87b233b40d4ba350628"><img alt="示例3" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506143054.png"></a></p>
 <p>如果裁切层大小与svg区域大小相同，那正好，只要把画布整体平移，使裁切层与svg区域重合即可，但是如果裁切层大小和svg区域大小不相同怎么办？</p>
 <p>下面分两种情况讨论：</p>
 <ol>
@@ -223,13 +223,13 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
 <ol>
 <li>
 <p>填满：裁切层完全覆盖svg区域，通过等比例缩放实现，这时裁切层内的内容不一定完全在svg区域内。比如下图中红色为svg区域，绿色为裁切层。填充时会将裁切层等比例放大知道能完全盖住svg区域。可以看到部分裁切层的内容不在svg区域内，最后不能显示。
-<a href="#R-image-8f11857b3be2168d155e575d03304b8b" class="lightbox-link"><img alt="填满示例" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144105.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8f11857b3be2168d155e575d03304b8b"><img alt="填满示例" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144105.png"></a></p>
+<a href="#R-image-7d2c771dab2e6c5254d61e93684b8217" class="lightbox-link"><img alt="填满示例" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144105.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7d2c771dab2e6c5254d61e93684b8217"><img alt="填满示例" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144105.png"></a></p>
 </li>
 <li>
 <p>完整展示：确保裁切层内容能完全处于svg区域内。且某一个方向铺满。比如上面同样的情况，会把裁切层区域先缩小，然后平移到svg区域使上下方向铺满，至于对齐方式也可以控制.
-<a href="#R-image-983838db23be867e82f643c98b4e450d" class="lightbox-link"><img alt="完整展示示例" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144337.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-983838db23be867e82f643c98b4e450d"><img alt="完整展示示例" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144337.png"></a></p>
+<a href="#R-image-49c9d39d5b73618f27d8974a5f8f9ba3" class="lightbox-link"><img alt="完整展示示例" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144337.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-49c9d39d5b73618f27d8974a5f8f9ba3"><img alt="完整展示示例" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506144337.png"></a></p>
 </li>
 <li>
 <p>上述两种填充方式以及对齐都是通过属性preserveAspectRatio来控制的。</p>
@@ -238,8 +238,8 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
 <div class="highlight wrap-code" dir="auto"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">对齐控制的值：xMinYMin，xMinYMax，xMaxYMax，xMaxYMin，xMinYMid，xMaxYMid，xMidYMid，xMidYMin，xMidYMax
 </span></span><span class="line"><span class="cl">平铺：slice(铺满) ，meet(裁切层全入)
 </span></span><span class="line"><span class="cl">默认：xMidYMid meet</span></span></code></pre></div>
-<p><a href="#R-image-735f8711b1ce3b48e4226bbb97d5565b" class="lightbox-link"><img alt="对齐示例" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506145205.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-735f8711b1ce3b48e4226bbb97d5565b"><img alt="对齐示例" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506145205.png"></a></p>
+<p><a href="#R-image-d3a228daf6322c766f5239cda73a5eed" class="lightbox-link"><img alt="对齐示例" class="lazy lightbox figure-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506145205.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d3a228daf6322c766f5239cda73a5eed"><img alt="对齐示例" class="lazy lightbox lightbox-image" loading="lazy" src="/posts/svg%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6%E4%B8%8E%E5%B1%95%E7%A4%BA%E7%9A%84%E9%80%BB%E8%BE%91/20250506145205.png"></a></p>
 
   <footer class="footline">
               <i class='fa-fw fas fa-calendar'></i> Jan 1, 2024
@@ -248,22 +248,22 @@ SVG是一种基于XML的矢量图形格式，它可以用来定义二维图形�
         </div>
       </main>
     </div>
-    <script src="/js/clipboard/clipboard.min.js?1746548857" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1746548857" defer></script>
-    <script src="/js/js-yaml/js-yaml.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-color.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1746548857" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1746548857" defer></script>
-    <script src="/js/mermaid/mermaid.min.js?1746548857" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1746549094" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1746549094" defer></script>
+    <script src="/js/js-yaml/js-yaml.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-color.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1746549094" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1746549094" defer></script>
+    <script src="/js/mermaid/mermaid.min.js?1746549094" defer></script>
     <script>
       window.relearn.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.min.js?1746548857" defer></script>
+    <script src="/js/theme.js?1746549094" defer></script>
   </body>
 </html>
