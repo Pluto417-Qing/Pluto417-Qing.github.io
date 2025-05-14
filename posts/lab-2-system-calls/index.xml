@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lab 2: System Calls :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://localhost:1313/posts/lab-2-system-calls/index.html</link>
+    <description>Lab1 是关于使用系统调用，Lab2则要我们自己写系统调用。&#xA;System call tracing (moderate) 题目要求：&#xA;In this assignment you will add a system call tracing feature that may help you when debugging later labs. You&#39;ll create a new trace system call that will control tracing. It should take one argument, an integer &#34;mask&#34;, whose bits specify which system calls to trace. For example, to trace the fork system call, a program calls trace(1 &lt;&lt; SYS_fork), where SYS_fork is a syscall number from kernel/syscall.h. You have to modify the xv6 kernel to print out a line when each system call is about to return, if the system call&#39;s number is set in the mask. The line should contain the process id, the name of the system call and the return value; you don&#39;t need to print the system call arguments. The trace system call should enable tracing for the process that calls it and any children that it subsequently forks, but should not affect other processes. 由Lab1我们知道,系统调用的过程是,首先运行syscall函数,然后进入内核态,内核态运行sysproc.c中的系统调用函数. 所有我们首先需要在kernel/sysproc.c中定义一个新的系统调用函数sys_trace。 uint64 sys_trace(void) { int mask; // 系统调用参数 if(argint(0,&amp;mask) &lt; 0){ // 通过argint函数获取参数 // 如果参数错误，返回-1 return -1; } struct proc *p = myproc(); // 获取当前进程 p -&gt; traceMask = mask; // 设置进程的traceMask return 0; }&#xD;在这个函数中我们会获取函数参数,然后设置proc结构体的traceMask字段。因为每个系统调用的信息都可能会被打印，而是否打印是由traceMask字段控制的。所有具体的打印代码应该放在syscall函数中,因为每个系统调用都必须经过该函数。 所以接下来在syscall函数中加入打印代码:</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/lab-2-system-calls/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

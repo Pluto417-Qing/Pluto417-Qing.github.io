@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SVG基础教程 :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://localhost:1313/posts/svg%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/index.html</link>
+    <description>SVG基础教程 SVG（Scalable Vector Graphics）是一种基于XML的矢量图形格式。本文将介绍SVG的基础知识。&#xA;什么是SVG？ SVG是一种使用XML描述二维图形的文件格式。SVG图像在放大或改变尺寸的情况下其图形质量不会有所损失。&#xA;基本形状 SVG支持多种基本形状：&#xA;矩形 (rect) 圆形 (circle) 椭圆 (ellipse) 线条 (line) 折线 (polyline) 多边形 (polygon) 路径 (path) 示例 这里是一个简单的SVG示例：&#xA;&lt;svg width=&#34;100&#34; height=&#34;100&#34;&gt; &lt;circle cx=&#34;50&#34; cy=&#34;50&#34; r=&#34;40&#34; stroke=&#34;black&#34; stroke-width=&#34;3&#34; fill=&#34;red&#34; /&gt; &lt;/svg&gt;&#xD;这个示例创建了一个红色的圆，带有黑色边框。&#xA;总结 SVG是一个强大的图形格式，特别适合用于网页设计。在接下来的文章中，我们将深入探讨更多SVG的高级特性。</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/svg%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

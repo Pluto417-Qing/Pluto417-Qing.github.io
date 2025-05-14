@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>探索 :: 标签 :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E6%8E%A2%E7%B4%A2/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E6%8E%A2%E7%B4%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lab 1：Unix Utilities</title>
+      <link>http://localhost:1313/posts/lab-1unix-utilities/index.html</link>
+      <pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lab-1unix-utilities/index.html</guid>
+      <description>Lab1 主要关于如何使用操作系统像用户程序提供的API来编写程序，也就是所谓的系统调用。使用系统调用可以方便使用操作系统封装的很多功能。完成实验之前，先了解一些预备知识。&#xA;预备知识 1. 如何获取命令行参数 int main(int argc, char *argv[]){}&#xD;main函数有两个参数。参数argc是一个整数，储存传入的命令行参数的个数。而参数argv是一个字符串数组，以字符串的形式存储传入的参数。argv[0]处存的是命令名称，往后才是参数。&#xA;2. 系统调用的底层实现细节 系统调用是如何实现的，比如为什么可以在sleep.c中直接使用sleep函数，那么sleep函数后面的实现细节是什么？我们可以通过gdb来观察一下。&#xA;首先读入user/sleep.c文件，并在sleep的main函数处设置断点。按c运行到main函数入口处停下。</description>
+    </item>
+    <item>
+      <title>Lab 2: System Calls</title>
+      <link>http://localhost:1313/posts/lab-2-system-calls/index.html</link>
+      <pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lab-2-system-calls/index.html</guid>
+      <description>Lab1 是关于使用系统调用，Lab2则要我们自己写系统调用。&#xA;System call tracing (moderate) 题目要求：&#xA;In this assignment you will add a system call tracing feature that may help you when debugging later labs. You&#39;ll create a new trace system call that will control tracing. It should take one argument, an integer &#34;mask&#34;, whose bits specify which system calls to trace. For example, to trace the fork system call, a program calls trace(1 &lt;&lt; SYS_fork), where SYS_fork is a syscall number from kernel/syscall.h. You have to modify the xv6 kernel to print out a line when each system call is about to return, if the system call&#39;s number is set in the mask. The line should contain the process id, the name of the system call and the return value; you don&#39;t need to print the system call arguments. The trace system call should enable tracing for the process that calls it and any children that it subsequently forks, but should not affect other processes. 由Lab1我们知道,系统调用的过程是,首先运行syscall函数,然后进入内核态,内核态运行sysproc.c中的系统调用函数. 所有我们首先需要在kernel/sysproc.c中定义一个新的系统调用函数sys_trace。在这个函数中我们会获取函数参数,然后设置proc结构体的traceMask字段。因为每个系统调用的信息都可能会被打印，而是否打印是由traceMask字段控制的。所有具体的打印代码应该放在syscall函数中,因为每个系统调用都必须经过该函数。 uint64 sys_trace(void) { int mask; if(argint(0,&amp;mask) &lt; 0){ return -1; } struct proc *p = myproc(); p -&gt; traceMask = mask; return 0; }&#xD;Sysinfo (moderate) 题目要求：&#xA;In this assignment you will add a system call, sysinfo, that collects information about the running system. The system call takes one argument: a pointer to a struct sysinfo (see kernel/sysinfo.h). The kernel should fill out the fields of this struct: the freemem field should be set to the number of bytes of free memory, and the nproc field should be set to the number of processes whose state is not UNUSED. We provide a test program sysinfotest; you pass this assignment if it prints &#34;sysinfotest: OK&#34;. 测评记录</description>
+    </item>
+  </channel>
+</rss>
