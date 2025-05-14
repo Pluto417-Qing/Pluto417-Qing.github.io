@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hello World :: Pluto417-Qing&#39;s Blog</title>
-    <link>https://pluto417-qing.github.io/index.html</link>
+    <link>http://localhost:1313/index.html</link>
     <description>欢迎来到我的博客 看过很多技术大佬的博客，身边的同学也有搭建自己的博客分享学习生活的，终于我决定也创建一个自己的博客，想以此激励自己多总结，多表达，多写作。知识是无限的，每天也遇到很多新的内容，希望通过博客，我可以把这些内容分享给大家，一起交流与学习。当然，也想随手记录生活。&#xA;技术心得 学习笔记 个人感悟 有趣的发现 未来的计划 走一步算一步吧，加油！&#xA;下面是我学习的一些编程语言的Hello World程序。&#xA;Python def hello_world(): print(&#34;Welcome to my blog!&#34;) hello_world()&#xD;Java public class HelloWorld { public static void main(String[] args) { System.out.println(&#34;Welcome to my blog!&#34;); } }&#xD;C #include &lt;stdio.h&gt; int main() { printf(&#34;Welcome to my blog!\n&#34;); return 0; }&#xD;C++ #include &lt;iostream&gt; int main() { std::cout &lt;&lt; &#34;Welcome to my blog!&#34; &lt;&lt; std::endl; return 0; }&#xD;HTML &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;Welcome to my blog!&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Welcome to my blog!&lt;/h1&gt; &lt;/body&gt; &lt;/html&gt;</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://pluto417-qing.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>关于我</title>
-      <link>https://pluto417-qing.github.io/about/index.html</link>
-      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://pluto417-qing.github.io/about/index.html</guid>
-      <description>一个苦逼的未来要当程序猿的大学生（哦不已经是了…）</description>
-    </item>
+    <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Posts</title>
-      <link>https://pluto417-qing.github.io/posts/index.html</link>
-      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://pluto417-qing.github.io/posts/index.html</guid>
+      <link>http://localhost:1313/posts/index.html</link>
+      <pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/index.html</guid>
       <description></description>
+    </item>
+    <item>
+      <title>关于我</title>
+      <link>http://localhost:1313/about/index.html</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/index.html</guid>
+      <description>一个苦逼的未来要当程序猿的大学生（哦不已经是了…）</description>
     </item>
   </channel>
 </rss>

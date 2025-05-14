@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lab 1：Unix Utilities :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://localhost:1313/posts/lab-1unix-utilities/index.html</link>
+    <description>Lab1 主要关于如何使用操作系统像用户程序提供的API来编写程序，也就是所谓的系统调用。使用系统调用可以方便使用操作系统封装的很多功能。完成实验之前，先了解一些预备知识。&#xA;预备知识 1. 如何获取命令行参数 int main(int argc, char *argv[]){}&#xD;main函数有两个参数。参数argc是一个整数，储存传入的命令行参数的个数。而参数argv是一个字符串数组，以字符串的形式存储传入的参数。argv[0]处存的是命令名称，往后才是参数。&#xA;2. 系统调用的底层实现细节 系统调用是如何实现的，比如为什么可以在sleep.c中直接使用sleep函数，那么sleep函数后面的实现细节是什么？我们可以通过gdb来观察一下。&#xA;首先读入user/sleep.c文件，并在sleep的main函数处设置断点。按c运行到main函数入口处停下。</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/lab-1unix-utilities/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

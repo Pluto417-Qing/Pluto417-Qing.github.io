@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>我的第一个实验 :: Pluto417-Qing&#39;s Blog</title>
+    <link>http://localhost:1313/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E9%AA%8C/index.html</link>
+    <description>我的第一个实验 这是一个实验专栏的示例文章，用来展示如何记录实验过程和结果。&#xA;实验目的 探索和记录各种有趣的实验，分享实验过程中的发现和心得。&#xA;实验步骤 准备实验环境 进行实验操作 记录实验数据 分析实验结果 实验结果 实验结果将在这里详细记录，包括：&#xA;数据图表 观察现象 结论分析 总结 通过这个实验，我们学到了…&#xA;下一步计划 在未来的实验中，我们将继续探索…</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E9%AA%8C/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
