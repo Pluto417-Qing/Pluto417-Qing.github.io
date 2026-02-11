@@ -18,7 +18,7 @@ books:
     cover_gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
     rating: 5
 
-  - title: 设计模式
+  - title: Head First Javascript
     title_en: Design Patterns
     author: Gang of Four
     category: computer
