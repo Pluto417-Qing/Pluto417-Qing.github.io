@@ -1,0 +1,19 @@
+# 正在阅读的书籍
+books:
+  - title: 软技能-代码之外的生存指南
+    title_en: Soft Skills - The Software Developer's Life Manual
+    author: John Z. Sonmez 约翰Z.森梅兹
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-clean-code/
+    cover_image: /assets/img/books/soft-skill.png
+    cover_gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+
+  - title: 程序员的职业素养
+    title_en: The Clean Coder - A Code of Conduct for Professional Programmers
+    author: Robert C. Martin
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-thinking-fast-slow/
+    cover_image: /assets/img/books/clean-code.png
+    cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"

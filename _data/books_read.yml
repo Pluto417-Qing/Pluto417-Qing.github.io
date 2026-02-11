@@ -1,0 +1,28 @@
+# 已读完的书籍
+books:
+  - title: 一九八四
+    title_en: "1984"
+    author: George Orwell
+    category: fiction
+    category_cn: 小说
+    url: /books/book-1984/
+    cover_gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+    rating: 5
+
+  - title: 人类简史
+    title_en: Sapiens
+    author: Yuval Noah Harari
+    category: politics
+    category_cn: 政治
+    url: /books/book-sapiens/
+    cover_gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+    rating: 5
+
+  - title: 设计模式
+    title_en: Design Patterns
+    author: Gang of Four
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-design-patterns/
+    cover_gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+    rating: 4

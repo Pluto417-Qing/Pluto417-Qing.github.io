@@ -1,7 +1,7 @@
 ---
 layout: page
 icon: fas fa-book
-order: 6
+order: 2
 title: Reading List
 ---
 
@@ -80,7 +80,10 @@ title: Reading List
   transition: transform 0.3s;
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .book:hover {
@@ -89,7 +92,7 @@ title: Reading List
 
 .book-cover {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 3 / 4;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -99,10 +102,15 @@ title: Reading List
   font-size: 0.9rem;
   color: white;
   text-align: center;
-  padding: 1rem;
   margin-bottom: 0.75rem;
   position: relative;
   overflow: hidden;
+}
+
+.book-cover > span {
+  padding: 1rem;
+  position: relative;
+  z-index: 0;
 }
 
 .book-cover::before {
@@ -113,13 +121,31 @@ title: Reading List
   right: 0;
   bottom: 0;
   background: linear-gradient(to right, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.1) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.book-cover img {
+/* Override refactor-content wrapping for book cover images */
+.book-cover .img-link,
+.book-cover a.popup {
+  display: contents;
+}
+
+.book-cover img,
+.book-cover .book-cover-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.book-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .book-title {
@@ -187,74 +213,62 @@ title: Reading List
 </div>
 
 <div class="bookshelf" id="bookshelf">
-  <!-- 示例书籍 - 正在阅读 -->
-  <a href="/books/book-clean-code/" class="book" data-status="reading" data-category="computer">
-    <div class="book-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-      <span>Clean Code</span>
+  <!-- 正在阅读 -->
+  {% for book in site.data.books_reading.books %}
+  <div class="book" data-status="reading" data-category="{{ book.category }}" data-url="{{ book.url }}">
+    <div class="book-cover" style="background: {{ book.cover_gradient }};">
+      {% if book.cover_image %}
+      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img">
+      {% else %}
+      <span>{{ book.title_en }}</span>
+      {% endif %}
     </div>
-    <div class="book-title">代码整洁之道</div>
-    <div class="book-author">Robert C. Martin</div>
-    <div class="book-category">计算机科学</div>
-  </a>
-
-  <a href="/books/book-thinking-fast-slow/" class="book" data-status="reading" data-category="economics">
-    <div class="book-cover" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-      <span>Thinking, Fast and Slow</span>
+    <div class="book-info">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="book-author">{{ book.author }}</div>
+      <div class="book-category">{{ book.category_cn }}</div>
     </div>
-    <div class="book-title">思考，快与慢</div>
-    <div class="book-author">Daniel Kahneman</div>
-    <div class="book-category">经济</div>
-  </a>
+  </div>
+  {% endfor %}
 
   <!-- 已读完 -->
-  <a href="/books/book-1984/" class="book" data-status="read" data-category="fiction">
-    <div class="book-cover" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-      <span>1984</span>
+  {% for book in site.data.books_read.books %}
+  <div class="book" data-status="read" data-category="{{ book.category }}" data-url="{{ book.url }}">
+    <div class="book-cover" style="background: {{ book.cover_gradient }};">
+      {% if book.cover_image %}
+      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img">
+      {% else %}
+      <span>{{ book.title_en }}</span>
+      {% endif %}
     </div>
-    <div class="book-title">一九八四</div>
-    <div class="book-author">George Orwell</div>
-    <div class="book-category">小说</div>
-    <div class="book-rating">⭐⭐⭐⭐⭐</div>
-  </a>
-
-  <a href="/books/book-sapiens/" class="book" data-status="read" data-category="politics">
-    <div class="book-cover" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-      <span>Sapiens</span>
+    <div class="book-info">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="book-author">{{ book.author }}</div>
+      <div class="book-category">{{ book.category_cn }}</div>
+      {% if book.rating %}
+      <div class="book-rating">{% for i in (1..book.rating) %}⭐{% endfor %}</div>
+      {% endif %}
     </div>
-    <div class="book-title">人类简史</div>
-    <div class="book-author">Yuval Noah Harari</div>
-    <div class="book-category">政治</div>
-    <div class="book-rating">⭐⭐⭐⭐⭐</div>
-  </a>
-
-  <a href="/books/book-design-patterns/" class="book" data-status="read" data-category="computer">
-    <div class="book-cover" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-      <span>Design Patterns</span>
-    </div>
-    <div class="book-title">设计模式</div>
-    <div class="book-author">Gang of Four</div>
-    <div class="book-category">计算机科学</div>
-    <div class="book-rating">⭐⭐⭐⭐</div>
-  </a>
+  </div>
+  {% endfor %}
 
   <!-- 想读 -->
-  <a href="/books/book-capital/" class="book" data-status="toread" data-category="economics">
-    <div class="book-cover" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-      <span>Das Kapital</span>
+  {% for book in site.data.books_toread.books %}
+  <div class="book" data-status="toread" data-category="{{ book.category }}" data-url="{{ book.url }}">
+    <div class="book-cover" style="background: {{ book.cover_gradient }};">
+      {% if book.cover_image %}
+      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img">
+      {% else %}
+      <span>{{ book.title_en }}</span>
+      {% endif %}
     </div>
-    <div class="book-title">资本论</div>
-    <div class="book-author">Karl Marx</div>
-    <div class="book-category">经济</div>
-  </a>
-
-  <a href="/books/book-algorithm/" class="book" data-status="toread" data-category="computer">
-    <div class="book-cover" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-      <span>Introduction to Algorithms</span>
+    <div class="book-info">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="book-author">{{ book.author }}</div>
+      <div class="book-category">{{ book.category_cn }}</div>
     </div>
-    <div class="book-title">算法导论</div>
-    <div class="book-author">Thomas H. Cormen</div>
-    <div class="book-category">计算机科学</div>
-  </a>
+  </div>
+  {% endfor %}
 </div>
 
 <div class="empty-state" id="emptyState">
@@ -312,6 +326,21 @@ title: Reading List
       this.classList.add('active');
       currentCategory = this.dataset.category;
       filterBooks();
+    });
+  });
+
+  // 点击书籍跳转
+  books.forEach(book => {
+    book.addEventListener('click', function(e) {
+      // 避免点击到 refactor-content 生成的弹出链接
+      if (e.target.closest('a.popup')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const url = this.dataset.url;
+      if (url) {
+        window.location.href = url;
+      }
     });
   });
 

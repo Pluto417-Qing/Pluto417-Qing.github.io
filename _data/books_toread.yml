@@ -1,0 +1,17 @@
+# 想读的书籍
+books:
+  - title: 资本论
+    title_en: Das Kapital
+    author: Karl Marx
+    category: economics
+    category_cn: 经济
+    url: /books/book-capital/
+    cover_gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+
+  - title: 算法导论
+    title_en: Introduction to Algorithms
+    author: Thomas H. Cormen
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-algorithm/
+    cover_gradient: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"

@@ -1,7 +1,7 @@
 ---
 layout: page
 icon: fas fa-check-circle
-order: 5
+order: 4
 ---
 
 <!-- 说明：目标数据存储在 _data/goals.yml 文件中，修改目标请编辑该文件 -->
