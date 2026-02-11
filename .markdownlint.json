@@ -1,8 +1,3 @@
 {
-  "commands-show-output": false,
-  "blanks-around-fences": false,
-  "line-length": false,
-  "no-inline-html": {
-    "allowed_elements": ["kbd", "sub"]
-  }
+  "default": false
 }
