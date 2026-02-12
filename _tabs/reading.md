@@ -213,12 +213,11 @@ title: Reading List
 </div>
 
 <div class="bookshelf" id="bookshelf">
-  <!-- 正在阅读 -->
   {% for book in site.data.books_reading.books %}
-  <div class="book" data-status="reading" data-category="{{ book.category }}" data-url="{{ book.url }}">
+  <a class="book" data-status="reading" data-category="{{ book.category }}" href="{{ book.url }}">
     <div class="book-cover" style="background: {{ book.cover_gradient }};">
       {% if book.cover_image %}
-      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img">
+      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img no-popup">
       {% else %}
       <span>{{ book.title_en }}</span>
       {% endif %}
@@ -228,15 +227,14 @@ title: Reading List
       <div class="book-author">{{ book.author }}</div>
       <div class="book-category">{{ book.category_cn }}</div>
     </div>
-  </div>
+  </a>
   {% endfor %}
 
-  <!-- 已读完 -->
   {% for book in site.data.books_read.books %}
-  <div class="book" data-status="read" data-category="{{ book.category }}" data-url="{{ book.url }}">
+  <a class="book" data-status="read" data-category="{{ book.category }}" href="{{ book.url }}">
     <div class="book-cover" style="background: {{ book.cover_gradient }};">
       {% if book.cover_image %}
-      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img">
+      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img no-popup">
       {% else %}
       <span>{{ book.title_en }}</span>
       {% endif %}
@@ -249,15 +247,14 @@ title: Reading List
       <div class="book-rating">{% for i in (1..book.rating) %}⭐{% endfor %}</div>
       {% endif %}
     </div>
-  </div>
+  </a>
   {% endfor %}
 
-  <!-- 想读 -->
   {% for book in site.data.books_toread.books %}
-  <div class="book" data-status="toread" data-category="{{ book.category }}" data-url="{{ book.url }}">
+  <a class="book" data-status="toread" data-category="{{ book.category }}" href="{{ book.url }}">
     <div class="book-cover" style="background: {{ book.cover_gradient }};">
       {% if book.cover_image %}
-      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img">
+      <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover-img no-popup">
       {% else %}
       <span>{{ book.title_en }}</span>
       {% endif %}
@@ -267,7 +264,7 @@ title: Reading List
       <div class="book-author">{{ book.author }}</div>
       <div class="book-category">{{ book.category_cn }}</div>
     </div>
-  </div>
+  </a>
   {% endfor %}
 </div>
 
@@ -312,7 +309,9 @@ title: Reading List
   }
 
   tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       tabs.forEach(t => t.classList.remove('active'));
       this.classList.add('active');
       currentStatus = this.dataset.status;
@@ -321,7 +320,9 @@ title: Reading List
   });
 
   filters.forEach(filter => {
-    filter.addEventListener('click', function() {
+    filter.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       filters.forEach(f => f.classList.remove('active'));
       this.classList.add('active');
       currentCategory = this.dataset.category;
@@ -329,30 +330,18 @@ title: Reading List
     });
   });
 
-  // 点击书籍跳转
+  /* Remove popup/img-link wrappers injected by refactor-content
+     so that GLightbox does not hijack book cover clicks */
   books.forEach(book => {
-    book.addEventListener('click', function(e) {
-      // 阻止图片链接的默认行为
-      e.preventDefault();
-      e.stopPropagation();
-      
-      const url = this.dataset.url;
-      if (url) {
-        window.location.href = url;
+    book.querySelectorAll('.book-cover a.popup, .book-cover a.img-link').forEach(link => {
+      const parent = link.parentNode;
+      while (link.firstChild) {
+        parent.insertBefore(link.firstChild, link);
       }
-    });
-    
-    // 为书籍封面内的所有链接添加事件处理
-    const links = book.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-      });
+      link.remove();
     });
   });
 
-  // 初始过滤
   filterBooks();
 })();
 </script>

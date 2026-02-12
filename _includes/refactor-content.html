@@ -67,6 +67,12 @@
       {% continue %}
     {% endif %}
 
+    <!-- Skip no-popup images (e.g. book covers) -->
+    {% if _left contains 'no-popup' %}
+      {% assign _img_content = _img_content | append: IMG_TAG | append: _left | append: _right %}
+      {% continue %}
+    {% endif %}
+
     {% assign _left = _left | remove: ' /' | replace: ' w=', ' width=' | replace: ' h=', ' height=' %}
     {% assign _attrs = _left | split: '" ' %}
 
