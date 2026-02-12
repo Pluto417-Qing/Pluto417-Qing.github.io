@@ -30,12 +30,6 @@ script_includes:
 
     <h1 data-toc-skip>{{ page.title }}</h1>
 
-    {% if page.chapter %}
-    <div class="chapter-info mb-3">
-      <span class="chapter-badge">第 {{ page.chapter }} 章</span>
-    </div>
-    {% endif %}
-
     {% if page.description or page.summary %}
       <p class="post-desc fw-light mb-4">{{ page.description | default: page.summary }}</p>
     {% endif %}
