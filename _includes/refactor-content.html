@@ -61,6 +61,12 @@
       {% continue %}
     {% endunless %}
 
+    <!-- Skip url-card favicon images -->
+    {% if _left contains 'url-card-favicon' %}
+      {% assign _img_content = _img_content | append: IMG_TAG | append: _left | append: _right %}
+      {% continue %}
+    {% endif %}
+
     {% assign _left = _left | remove: ' /' | replace: ' w=', ' width=' | replace: ' h=', ' height=' %}
     {% assign _attrs = _left | split: '" ' %}
 

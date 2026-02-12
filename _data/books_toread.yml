@@ -8,3 +8,12 @@ books:
     url: /books/book-algorithm/
     cover_image: /assets/img/books/algorithm-intro.png
     cover_gradient: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"
+
+  - title: Head First 设计模式
+    title_en: Head First Design Pattern
+    author: Eric Freeman & Elisabeth Robson
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-algorithm/
+    cover_image: /assets/img/books/head-first-design-pattern.png
+    cover_gradient: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"

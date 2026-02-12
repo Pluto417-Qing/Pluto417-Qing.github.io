@@ -54,6 +54,16 @@ main() {
     rm -rf "$SITE_DIR"
   fi
 
+  # Auto-convert Obsidian cardlinks to Jekyll format
+  echo "Converting cardlinks..."
+  if command -v python3 &> /dev/null; then
+    python3 tools/convert_cardlinks.py --all 2>/dev/null || python tools/convert_cardlinks.py --all 2>/dev/null || echo "Skipping cardlink conversion"
+  elif command -v python &> /dev/null; then
+    python tools/convert_cardlinks.py --all 2>/dev/null || echo "Skipping cardlink conversion"
+  else
+    echo "Skipping cardlink conversion (Python not found)"
+  fi
+
   read_baseurl
 
   # build

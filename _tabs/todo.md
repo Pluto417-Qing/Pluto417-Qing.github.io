@@ -757,5 +757,3 @@ timelineYears.forEach(yearElement => {
 });
 </script>
 
-> 💡 **提示：** 点击时间线上的年份查看不同年度的目标。点击目标可以切换完成状态，追踪你的成长历程！修改目标请编辑 `_data/goals.yml` 文件。
-{: .prompt-tip }

@@ -50,5 +50,15 @@ if [ -e /proc/1/cgroup ] && grep -q docker /proc/1/cgroup; then
   command="$command --force_polling"
 fi
 
+# Auto-convert Obsidian cardlinks to Jekyll format
+echo -e "\n> Converting cardlinks...\n"
+if command -v python3 &> /dev/null; then
+  python3 tools/convert_cardlinks.py --all 2>/dev/null || python tools/convert_cardlinks.py --all 2>/dev/null || echo "Skipping cardlink conversion (Python not found)"
+elif command -v python &> /dev/null; then
+  python tools/convert_cardlinks.py --all 2>/dev/null || echo "Skipping cardlink conversion (script failed)"
+else
+  echo "Skipping cardlink conversion (Python not found)"
+fi
+
 echo -e "\n> $command\n"
 eval "$command"

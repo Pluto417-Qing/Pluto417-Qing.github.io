@@ -1,0 +1,146 @@
+// URL Card styles
+.url-card {
+  display: block;
+  margin: 1.5rem 0;
+  --card-border-color: #d0d7de;
+  --card-bg: #ffffff;
+  --card-header-bg: #f6f8fa;
+  --card-footer-border: #e5e7eb;
+  border: 2px solid var(--card-border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--link-color, #0969da);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.url-card-wrapper {
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.url-card-image {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--card-header-bg);
+
+  @media (min-width: 768px) {
+    width: 240px;
+    height: auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.url-card-content {
+  padding: 1.25rem 1.5rem;
+  display: flex !important;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 0;
+}
+
+.url-card-title {
+  display: block;
+  margin: 0 0 0.625rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--heading-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+.url-card-description {
+  display: block;
+  margin: 0 0 0.875rem 0;
+  font-size: 0.875rem;
+  color: var(--text-muted-color);
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex: 1;
+  word-break: break-word;
+}
+
+.url-card-footer {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--card-footer-border);
+}
+
+.url-card-favicon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.url-card-host {
+  font-size: 0.8125rem;
+  color: var(--text-muted-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+// Dark mode adjustments
+[data-mode='dark'] {
+  .url-card {
+    --card-border-color: rgba(255, 255, 255, 0.2);
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-header-bg: rgba(255, 255, 255, 0.04);
+    --card-footer-border: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// Light mode
+[data-mode='light'] {
+  .url-card {
+    --card-border-color: #d0d7de;
+    --card-bg: #ffffff;
+    --card-header-bg: #f6f8fa;
+    --card-footer-border: #e5e7eb;
+  }
+}

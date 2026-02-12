@@ -1,0 +1,38 @@
+{%- comment -%}
+  URL Card Component - Renders a link preview card
+
+  Parameters:
+    url: The URL to link to (required)
+    title: Card title (optional)
+    description: Card description (optional)
+    host: Hostname (optional)
+    favicon: Favicon URL (optional)
+    image: Preview image URL (optional)
+{%- endcomment -%}
+
+<a href="{{ include.url }}" target="_blank" rel="noopener noreferrer" class="url-card">
+  <span class="url-card-wrapper">
+    {%- if include.image -%}
+    <span class="url-card-image">
+      <img src="{{ include.image }}" alt="{{ include.title | default: 'Preview' }}" loading="lazy">
+    </span>
+    {%- endif -%}
+
+    <span class="url-card-content">
+      {%- if include.title -%}
+      <span class="url-card-title">{{ include.title }}</span>
+      {%- endif -%}
+
+      {%- if include.description -%}
+      <span class="url-card-description">{{ include.description }}</span>
+      {%- endif -%}
+
+      <span class="url-card-footer">
+        {%- if include.favicon -%}
+        <img src="{{ include.favicon }}" alt="" class="url-card-favicon" loading="lazy">
+        {%- endif -%}
+        <span class="url-card-host">{{ include.host | default: include.url }}</span>
+      </span>
+    </span>
+  </span>
+</a>
