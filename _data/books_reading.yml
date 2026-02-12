@@ -14,7 +14,7 @@ books:
     author: Robert C. Martin
     category: computer
     category_cn: 计算机科学
-    url: /books/book-thinking-fast-slow/
+    url: /books/book-clean-coder/
     cover_image: /assets/img/books/clean-code.png
     cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
 
@@ -22,7 +22,7 @@ books:
     author: 严灿平
     category: computer
     category_cn: 计算机科学
-    url: /books/book-thinking-fast-slow/
+    url: /books/book-rag-llm/
     cover_image: /assets/img/books/rag-llm.png
     cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
 
@@ -30,6 +30,6 @@ books:
     author: Kathy Sierra, Bert Bates & Trisha Gee
     category: computer
     category_cn: 计算机科学
-    url: /books/book-thinking-fast-slow/
+    url: /books/book-head-first-java/
     cover_image: /assets/img/books/head-first-java.png
     cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"

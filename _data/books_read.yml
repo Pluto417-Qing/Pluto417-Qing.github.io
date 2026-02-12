@@ -19,10 +19,10 @@ books:
     rating: 5
 
   - title: Head First Javascript
-    title_en: Design Patterns
-    author: Gang of Four
+    title_en: Head First JavaScript
+    author: Elisabeth Robson & Eric Freeman
     category: computer
     category_cn: 计算机科学
-    url: /books/book-design-patterns/
+    url: /books/book-head-first-javascript/
     cover_gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     rating: 4

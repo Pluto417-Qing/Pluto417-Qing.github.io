@@ -332,11 +332,6 @@ title: Reading List
   // 点击书籍跳转
   books.forEach(book => {
     book.addEventListener('click', function(e) {
-      // 避免点击到 refactor-content 生成的弹出链接
-      if (e.target.closest('a.popup')) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
       const url = this.dataset.url;
       if (url) {
         window.location.href = url;
