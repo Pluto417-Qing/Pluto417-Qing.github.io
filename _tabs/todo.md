@@ -596,164 +596,125 @@ order: 4
 </div>
 
 <script>
-// Checkbox 切换完成状态（仅本地显示，不保存）
-function toggleGoalCompleted(event) {
-  event.stopPropagation(); // 阻止事件冒泡
-  const goalItem = event.target.closest('.goal-item');
-  goalItem.classList.toggle('completed');
-  updateStats();
-}
+(function() {
+  /* Checkbox 切换完成状态（仅本地显示，不保存） */
+  window.toggleGoalCompleted = function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    var goalItem = event.target.closest('.goal-item');
+    goalItem.classList.toggle('completed');
+    updateStats();
+  };
 
-// 目标项点击跳转到详情页
-document.addEventListener('DOMContentLoaded', function() {
-  const goalItems = document.querySelectorAll('.goal-item');
-  goalItems.forEach(item => {
+  /* 目标项点击跳转到详情页 */
+  var goalItems = document.querySelectorAll('.goal-item');
+  goalItems.forEach(function(item) {
     item.addEventListener('click', function(e) {
-      // 如果点击的是checkbox，不跳转
       if (e.target.classList.contains('goal-checkbox')) {
         return;
       }
-      const url = this.dataset.goalUrl;
+      var url = this.dataset.goalUrl;
       if (url) {
         window.location.href = url;
       }
     });
   });
-});
 
-// Tab 切换功能
-const categoryTabs = document.querySelectorAll('.category-tab');
-const tabContents = document.querySelectorAll('.tab-content');
+  /* Tab 切换功能 */
+  var categoryTabs = document.querySelectorAll('.category-tab');
+  var tabContents = document.querySelectorAll('.tab-content');
 
-categoryTabs.forEach(tab => {
-  tab.addEventListener('click', function() {
-    const category = this.dataset.category;
-    
-    // 移除所有 active 状态
-    categoryTabs.forEach(t => t.classList.remove('active'));
-    tabContents.forEach(c => c.classList.remove('active'));
-    
-    // 添加当前 active 状态
-    this.classList.add('active');
-    document.querySelector(`.tab-content[data-category="${category}"]`).classList.add('active');
-    
-    // 更新统计数据
-    updateStats();
+  categoryTabs.forEach(function(tab) {
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var category = this.dataset.category;
+
+      categoryTabs.forEach(function(t) { t.classList.remove('active'); });
+      tabContents.forEach(function(c) { c.classList.remove('active'); });
+
+      this.classList.add('active');
+      var target = document.querySelector('.tab-content[data-category="' + category + '"]');
+      if (target) { target.classList.add('active'); }
+
+      updateStats();
+    });
   });
-});
 
-function updateStats() {
-  setTimeout(() => {
-    const allGoals = document.querySelectorAll('.tab-content.active .goal-item');
-    const completedGoals = document.querySelectorAll('.tab-content.active .goal-item.completed');
-    const total = allGoals.length;
-    const completed = completedGoals.length;
-    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-    
+  function updateStats() {
+    var allGoals = document.querySelectorAll('.tab-content.active .goal-item');
+    var completedGoals = document.querySelectorAll('.tab-content.active .goal-item.completed');
+    var total = allGoals.length;
+    var completed = completedGoals.length;
+    var percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+
     document.getElementById('totalGoals').textContent = total;
     document.getElementById('completedGoals').textContent = completed;
     document.getElementById('progressPercent').textContent = percent + '%';
-  }, 100);
-}
-
-// 全局统计（所有分类）
-function updateGlobalStats() {
-  setTimeout(() => {
-    const allGoals = document.querySelectorAll('.goal-item');
-    const completedGoals = document.querySelectorAll('.goal-item.completed');
-    const total = allGoals.length;
-    const completed = completedGoals.length;
-    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-    
-    // 这里可以用于显示总体统计，如果需要的话
-    console.log(`总体: ${completed}/${total} (${percent}%)`);
-  }, 100);
-}
-
-// 初始化当前 Tab 的统计
-updateStats();
-
-// 时间线年份切换
-const timelineYears = document.querySelectorAll('.timeline-year');
-const currentYear = new Date().getFullYear();
-
-timelineYears.forEach(yearElement => {
-  const year = parseInt(yearElement.dataset.year);
-  
-  // 标记已完成的年份
-  if (year < currentYear) {
-    yearElement.classList.add('completed');
   }
-  
-  // 点击事件
-  yearElement.addEventListener('click', function() {
-    // 移除所有 active 状态
-    timelineYears.forEach(y => y.classList.remove('active'));
-    
-    // 添加当前 active 状态
-    this.classList.add('active');
-    
-    const selectedYear = this.dataset.year;
-    
-    // 添加切换动画效果
-    const allTabContents = document.querySelectorAll('.tab-content');
-    allTabContents.forEach(section => {
-      section.style.opacity = '0.3';
-      setTimeout(() => {
-        section.style.opacity = '1';
-      }, 200);
-    });
-    
-    // 显示临时提示
-    const existingNotice = document.getElementById('yearNotice');
-    if (existingNotice) {
-      existingNotice.remove();
+
+  /* 初始化当前 Tab 的统计 */
+  updateStats();
+
+  /* 时间线年份切换 */
+  var timelineYears = document.querySelectorAll('.timeline-year');
+  var currentYear = new Date().getFullYear();
+
+  timelineYears.forEach(function(yearElement) {
+    var year = parseInt(yearElement.dataset.year);
+
+    if (year < currentYear) {
+      yearElement.classList.add('completed');
     }
-    
-    let noticeText = '';
-    if (selectedYear < currentYear) {
-      noticeText = `🎉 ${selectedYear} 年的目标已完成`;
-    } else if (selectedYear == currentYear) {
-      noticeText = `💪 ${selectedYear} 年目标进行中，加油！`;
-    } else {
-      noticeText = `📝 ${selectedYear} 年目标规划中`;
-    }
-    
-    const notice = document.createElement('div');
-    notice.id = 'yearNotice';
-    notice.style.cssText = 'text-align: center; margin: 1rem auto; padding: 0.75rem 1.5rem; background: var(--tag-bg, #f6f8fa); border-left: 4px solid var(--link-color, #0969da); border-radius: 6px; color: var(--text-color); font-size: 0.9rem; max-width: 600px; animation: slideIn 0.3s ease;';
-    notice.textContent = noticeText;
-    
-    const progressSummary = document.querySelector('.progress-summary');
-    progressSummary.parentNode.insertBefore(notice, progressSummary.nextSibling);
-    
-    setTimeout(() => {
-      if (notice.parentNode) {
-        notice.style.transition = 'opacity 0.5s ease';
-        notice.style.opacity = '0';
-        setTimeout(() => notice.remove(), 500);
+
+    yearElement.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      timelineYears.forEach(function(y) { y.classList.remove('active'); });
+      this.classList.add('active');
+
+      var selectedYear = this.dataset.year;
+
+      var allTabContents = document.querySelectorAll('.tab-content');
+      allTabContents.forEach(function(section) {
+        section.style.opacity = '0.3';
+        setTimeout(function() { section.style.opacity = '1'; }, 200);
+      });
+
+      var existingNotice = document.getElementById('yearNotice');
+      if (existingNotice) { existingNotice.remove(); }
+
+      var noticeText = '';
+      if (selectedYear < currentYear) {
+        noticeText = '\uD83C\uDF89 ' + selectedYear + ' \u5E74\u7684\u76EE\u6807\u5DF2\u5B8C\u6210';
+      } else if (selectedYear == currentYear) {
+        noticeText = '\uD83D\uDCAA ' + selectedYear + ' \u5E74\u76EE\u6807\u8FDB\u884C\u4E2D\uFF0C\u52A0\u6CB9\uFF01';
+      } else {
+        noticeText = '\uD83D\uDCDD ' + selectedYear + ' \u5E74\u76EE\u6807\u89C4\u5212\u4E2D';
       }
-    }, 3000);
-    
-    // 更新统计数据
-    updateStats();
+
+      var notice = document.createElement('div');
+      notice.id = 'yearNotice';
+      notice.style.cssText = 'text-align: center; margin: 1rem auto; padding: 0.75rem 1.5rem; background: var(--tag-bg, #f6f8fa); border-left: 4px solid var(--link-color, #0969da); border-radius: 6px; color: var(--text-color); font-size: 0.9rem; max-width: 600px;';
+      notice.textContent = noticeText;
+
+      var progressSummary = document.querySelector('.progress-summary');
+      if (progressSummary && progressSummary.parentNode) {
+        progressSummary.parentNode.insertBefore(notice, progressSummary.nextSibling);
+      }
+
+      setTimeout(function() {
+        if (notice.parentNode) {
+          notice.style.transition = 'opacity 0.5s ease';
+          notice.style.opacity = '0';
+          setTimeout(function() { notice.remove(); }, 500);
+        }
+      }, 3000);
+
+      updateStats();
+    });
   });
-  
-  // 悬停效果增强
-  yearElement.addEventListener('mouseenter', function() {
-    const year = this.dataset.year;
-    const info = this.querySelector('.year-info');
-    if (!this.classList.contains('active')) {
-      info.style.opacity = '0.7';
-    }
-  });
-  
-  yearElement.addEventListener('mouseleave', function() {
-    const info = this.querySelector('.year-info');
-    if (!this.classList.contains('active')) {
-      info.style.opacity = '0';
-    }
-  });
-});
+})();
 </script>
 
