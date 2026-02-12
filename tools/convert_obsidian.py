@@ -406,14 +406,20 @@ def main():
 
     if args.all:
         base_dir = Path(__file__).parent.parent
-        directories = ['_books', '_posts', '_projects']
+        directories = ['_books', '_posts', '_projects', '_book_notes']
         count = 0
         for dir_name in directories:
             dir_path = base_dir / dir_name
             if dir_path.exists():
-                for md_file in sorted(dir_path.glob('*.md')):
-                    process_file(str(md_file), dry_run=args.dry_run)
-                    count += 1
+                # Use rglob for recursive search in _book_notes to handle subdirectories
+                if dir_name == '_book_notes':
+                    for md_file in sorted(dir_path.rglob('*.md')):
+                        process_file(str(md_file), dry_run=args.dry_run)
+                        count += 1
+                else:
+                    for md_file in sorted(dir_path.glob('*.md')):
+                        process_file(str(md_file), dry_run=args.dry_run)
+                        count += 1
         print(f"\n✓ Processed {count} files")
     else:
         for fp in args.files:

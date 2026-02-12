@@ -1,0 +1,292 @@
+---
+layout: default
+panel_includes:
+  - toc
+tail_includes:
+  - post-nav
+script_includes:
+  - comment
+---
+
+{% include lang.html %}
+
+{% include toc-status.html %}
+
+<article class="px-1" data-toc="{{ enable_toc }}">
+  <header>
+    <!-- 面包屑导航 -->
+    {% assign book = site.books | where: "book_id", page.book_id | first %}
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ '/reading/' | relative_url }}">阅读书单</a></li>
+        {% if book %}
+        <li class="breadcrumb-item"><a href="{{ book.url | relative_url }}">{{ book.title }}</a></li>
+        {% endif %}
+        <li class="breadcrumb-item active" aria-current="page">
+          {% if page.chapter %}第 {{ page.chapter }} 章{% endif %}
+        </li>
+      </ol>
+    </nav>
+
+    <h1 data-toc-skip>{{ page.title }}</h1>
+
+    {% if page.chapter %}
+    <div class="chapter-info mb-3">
+      <span class="chapter-badge">第 {{ page.chapter }} 章</span>
+    </div>
+    {% endif %}
+
+    {% if page.description or page.summary %}
+      <p class="post-desc fw-light mb-4">{{ page.description | default: page.summary }}</p>
+    {% endif %}
+
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        {{ site.data.locales[lang].post.posted }}
+        {% include datetime.html date=page.date tooltip=true lang=lang %}
+      </span>
+
+      <!-- lastmod date -->
+      {% if page.last_modified_at and page.last_modified_at != page.date %}
+        <span>
+          {{ site.data.locales[lang].post.updated }}
+          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
+        </span>
+      {% endif %}
+
+      <!-- page views -->
+      {% if site.pageviews.provider and page.pageviews != false %}
+        <span>
+          <em id="pageviews">
+            <i class="fas fa-spinner fa-spin small"></i>
+          </em>
+          {{ site.data.locales[lang].post.pageviews.label }}
+        </span>
+      {% endif %}
+
+      <!-- read time -->
+      {% include read-time.html content=content prompt=true lang=lang %}
+    </div>
+  </header>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
+    {% if page.categories.size > 0 %}
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        {% for category in page.categories %}
+          <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category }}</a>
+          {%- unless forloop.last -%},{%- endunless -%}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- tags -->
+    {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        {% for tag in page.tags %}
+          <a
+            href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
+            class="post-tag no-text-decoration"
+          >
+            {{- tag -}}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        {% if page.license %}
+          {% assign license = page.license %}
+        {% else %}
+          {% assign license = site.data.locales[lang].copyright.license.link %}
+        {% endif %}
+
+        {% if license != empty %}
+          {% if license contains '://' %}
+            {% assign license_url = license %}
+          {% else %}
+            {% assign license_url = site.data.locales[lang].copyright.license[license].link %}
+          {% endif %}
+
+          This post is licensed under
+          <a href="{{ license_url }}">
+            {% if license contains '://' %}
+              {{ license }}
+            {% else %}
+              {{ site.data.locales[lang].copyright.license[license].name }}
+            {% endif %}
+          </a>
+          by the author.
+        {% endif %}
+      </div>
+
+      {% include post-sharing.html lang=lang %}
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
+</article>
+
+<!-- 同一本书的其他章节笔记 -->
+{% assign related_notes = site.book_notes | where: "book_id", page.book_id | sort: "chapter" %}
+{% if related_notes.size > 1 %}
+<aside aria-label="related-notes">
+  <h3 class="mb-4">相关章节</h3>
+  <div class="card-wrapper">
+    {% for note in related_notes %}
+      {% if note.url != page.url %}
+      <article class="card">
+        <a href="{{ note.url | relative_url }}" class="card-link">
+          <div class="card-body">
+            {% if note.chapter %}
+            <span class="chapter-badge-small">第 {{ note.chapter }} 章</span>
+            {% endif %}
+            <h4 class="card-title">{{ note.title }}</h4>
+            {% if note.summary or note.excerpt %}
+            <p class="card-text">
+              {{ note.summary | default: note.excerpt | strip_html | truncatewords: 20 }}
+            </p>
+            {% endif %}
+            <div class="card-date text-muted small">
+              {% include datetime.html date=note.date lang=lang %}
+            </div>
+          </div>
+        </a>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</aside>
+{% endif %}
+
+<style>
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--text-muted-color);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--text-muted-color);
+}
+
+.chapter-info {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.chapter-badge {
+  display: inline-block;
+  background: var(--link-color);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chapter-badge-small {
+  display: inline-block;
+  background: var(--link-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+aside[aria-label="related-notes"] {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color);
+}
+
+aside[aria-label="related-notes"] h3 {
+  color: var(--heading-color);
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--link-color);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.75rem 0;
+  color: var(--heading-color);
+  line-height: 1.4;
+}
+
+.card-text {
+  color: var(--text-muted-color);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.card-date {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
