@@ -117,7 +117,10 @@ def _collect_callout_body(lines: list, start_idx: int) -> tuple:
            > [!example] Title
            > ● item 1           ← quoted bullet
            ● item 2             ← unquoted bullet, continuation
-    4. Non-continuation: normal text after `> text` without empty `>`:
+    4. Immediate continuation after callout marker:
+           > [!type]
+           content line         ← no > prefix, immediately after marker
+    5. Non-continuation: normal text after `> text` without empty `>`:
            > [!cite] Title
            > content             ← quoted content
            1. outside text       ← NOT in callout (no empty > before it)
@@ -134,6 +137,7 @@ def _collect_callout_body(lines: list, start_idx: int) -> tuple:
     body_lines = []
     i = start_idx
     allows_continuation = False  # Whether next non-quoted line is a continuation
+    is_first_line = True  # Track if this is the first line after callout marker
 
     while i < len(lines):
         cur = lines[i]
@@ -155,27 +159,42 @@ def _collect_callout_body(lines: list, start_idx: int) -> tuple:
                 allows_continuation = True
             else:
                 allows_continuation = False
+            is_first_line = False
             i += 1
 
         # Non-quoted, non-blank continuation line
-        elif cur.strip() != '' and allows_continuation:
-            # Stop conditions:
-            if cur.strip() == '---':
+        elif cur.strip() != '':
+            # Allow continuation if:
+            # 1. Explicitly enabled by previous line, OR
+            # 2. This is the first line after callout marker (special case)
+            if allows_continuation or is_first_line:
+                # Stop conditions:
+                if cur.strip() == '---':
+                    break
+                if cur.startswith('#'):
+                    break
+                # Numbered list items (1. 2. etc.) are always OUTSIDE the callout
+                if re.match(r'^\d+\.\s', cur):
+                    break
+                # Jekyll prompt markers should not be included
+                if cur.strip().startswith('{: .prompt-'):
+                    break
+                body_lines.append(cur)
+                # If this continuation line is also a bullet, keep allowing
+                if re.match(r'^\s*[●\-\*]\s', cur):
+                    allows_continuation = True
+                # Allow continuation for first line content
+                elif is_first_line:
+                    allows_continuation = False
+                # If it's other content after empty >, keep allowing
+                # (handles multi-line paragraph continuation)
+                is_first_line = False
+                i += 1
+            else:
+                # Not a continuation or blank line — end of callout
                 break
-            if cur.startswith('#'):
-                break
-            # Numbered list items (1. 2. etc.) are always OUTSIDE the callout
-            if re.match(r'^\d+\.\s', cur):
-                break
-            body_lines.append(cur)
-            # If this continuation line is also a bullet, keep allowing
-            if re.match(r'^\s*[●\-\*]\s', cur):
-                allows_continuation = True
-            # If it's other content after empty >, keep allowing
-            # (handles multi-line paragraph continuation)
-            i += 1
         else:
-            # Not a continuation or blank line — end of callout
+            # Blank line - end of callout
             break
 
     # Clean up: strip trailing empty lines
@@ -248,7 +267,9 @@ def convert_callouts(content: str) -> str:
             output_lines = []
 
             if callout_title:
-                output_lines.append(f'> **{callout_title}**')
+                # Remove existing ** markers to avoid duplication
+                clean_title = callout_title.strip('*').strip()
+                output_lines.append(f'> **{clean_title}**')
                 if body_lines:
                     output_lines.append('>')
                     for bl in body_lines:
@@ -297,10 +318,10 @@ def normalize_headings(content: str) -> str:
 # Block spacing normalization
 # ─────────────────────────────────────────────────────────────
 def normalize_block_spacing(content: str) -> str:
-    """Ensure empty lines around blockquotes and horizontal rules.
+    """Ensure empty lines around blockquotes, horizontal rules, and headings.
 
-    In Markdown, blockquotes (> ...) and horizontal rules (---) need
-    blank lines before/after them to be parsed correctly when adjacent
+    In Markdown, blockquotes (> ...), horizontal rules (---), and headings (##)
+    need blank lines before/after them to be parsed correctly when adjacent
     to other block elements like lists or paragraphs.
     """
     lines = content.split('\n')
@@ -310,12 +331,14 @@ def normalize_block_spacing(content: str) -> str:
         prev = lines[idx - 1] if idx > 0 else ''
         is_blockquote = line.startswith('>')
         is_hr = line.strip() == '---'
+        is_heading = line.startswith('#') and not line.startswith('#!')
 
-        # Add empty line before blockquote/hr if previous line is
+        # Add empty line before blockquote/hr/heading if previous line is
         # non-empty and not itself a blockquote or prompt class
-        if (is_blockquote or is_hr) and prev.strip() != '' \
+        if (is_blockquote or is_hr or is_heading) and prev.strip() != '' \
                 and not prev.startswith('>') \
-                and not prev.startswith('{: .prompt-'):
+                and not prev.startswith('{: .prompt-') \
+                and prev.strip() != '---':
             result.append('')
 
         result.append(line)
