@@ -332,10 +332,23 @@ title: Reading List
   // 点击书籍跳转
   books.forEach(book => {
     book.addEventListener('click', function(e) {
+      // 阻止图片链接的默认行为
+      e.preventDefault();
+      e.stopPropagation();
+      
       const url = this.dataset.url;
       if (url) {
         window.location.href = url;
       }
+    });
+    
+    // 为书籍封面内的所有链接添加事件处理
+    const links = book.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      });
     });
   });
 
