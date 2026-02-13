@@ -225,7 +225,7 @@ layout: default
   padding: 0.3rem 0.8rem;
   border-radius: 6px;
   font-size: 0.85rem;
-  color: var(--text-color);
+  color: var(--text-muted-color);
 }
 
 .repo-link-section {
@@ -357,8 +357,8 @@ layout: default
 }
 
 .status-closed {
-  background: #f6f8fa;
-  color: #656d76;
+  background: var(--tag-bg, #f6f8fa);
+  color: var(--text-muted-color, #656d76);
 }
 
 .detail-title {
@@ -408,6 +408,7 @@ layout: default
   border-radius: 8px;
   font-size: 0.7rem;
   white-space: nowrap;
+  color: var(--text-muted-color);
 }
 
 .empty-state {

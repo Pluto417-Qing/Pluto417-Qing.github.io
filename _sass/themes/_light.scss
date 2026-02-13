@@ -9,6 +9,11 @@
   --text-muted-color: #757575;
   --text-muted-highlight-color: inherit;
   --heading-color: #2a2a2a;
+  --heading-h1-color: #2563eb; /* Blue */
+  --heading-h2-color: #7c3aed; /* Purple */
+  --heading-h3-color: #dc2626; /* Red */
+  --heading-h4-color: #ea580c; /* Orange */
+  --heading-h5-color: #059669; /* Green */
   --label-color: #585858;
   --blockquote-border-color: #eeeeee;
   --blockquote-text-color: #757575;
@@ -59,8 +64,8 @@
   --btn-share-hover-color: #0d6efd;
   --card-bg: white;
   --card-hover-bg: #e2e2e2;
-  --card-shadow: rgb(104 104 104 / 5%) 0 2px 6px 0,
-    rgb(211 209 209 / 15%) 0 0 0 1px;
+  --card-shadow:
+    rgb(104 104 104 / 5%) 0 2px 6px 0, rgb(211 209 209 / 15%) 0 0 0 1px;
   --footnote-target-bg: lightcyan;
   --tb-odd-bg: #fbfcfd;
   --tb-border-color: #eaeaea;
@@ -79,6 +84,7 @@
   --prompt-danger-icon-color: #df3c30;
 
   /* Tags */
+  --tag-bg: #f6f8fa;
   --tag-border: #dee2e6;
   --tag-shadow: var(--btn-border-color);
   --tag-hover: rgb(222 226 230);

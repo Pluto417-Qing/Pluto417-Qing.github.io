@@ -11,6 +11,11 @@
   --text-muted-color: #868686;
   --text-muted-highlight-color: #aeaeae;
   --heading-color: #cccccc;
+  --heading-h1-color: #60a5fa; /* Light Blue */
+  --heading-h2-color: #a78bfa; /* Light Purple */
+  --heading-h3-color: #f87171; /* Light Red */
+  --heading-h4-color: #fb923c; /* Light Orange */
+  --heading-h5-color: #34d399; /* Light Green */
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66 66 66);
   --blockquote-text-color: #868686;
@@ -67,8 +72,8 @@
   --btn-share-hover-color: #bfc1ca;
   --card-bg: #1e1e1e;
   --card-hover-bg: #464d51;
-  --card-shadow: rgb(21 21 21 / 72%) 0 6px 18px 0,
-    rgb(137 135 135 / 24%) 0 0 0 1px;
+  --card-shadow:
+    rgb(21 21 21 / 72%) 0 6px 18px 0, rgb(137 135 135 / 24%) 0 0 0 1px;
   --kbd-wrap-color: #6a6a6a;
   --kbd-text-color: #d3d3d3;
   --kbd-bg-color: #242424;
@@ -83,6 +88,7 @@
   --prompt-danger-icon-color: #cd0202;
 
   /* Tags */
+  --tag-bg: #2d333b;
   --tag-border: rgb(59 79 88);
   --tag-shadow: rgb(32 33 33);
   --dash-color: rgb(63 65 68);

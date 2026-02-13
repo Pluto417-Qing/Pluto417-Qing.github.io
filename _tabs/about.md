@@ -86,11 +86,11 @@ title: About
   .banner-title {
     font-size: 1.4rem;
   }
-  
+
   .typing-text {
     font-size: 0.9rem;
   }
-  
+
   .animated-banner {
     padding: 1.5rem 1rem;
   }
@@ -160,7 +160,7 @@ title: About
   background: var(--tag-bg, #f6f8fa);
   border-radius: 6px;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text-muted-color);
   font-size: 0.9rem;
   transition: all 0.2s;
 }
@@ -214,7 +214,7 @@ title: About
   background: var(--tag-bg, #f6f8fa);
   border-radius: 4px;
   font-size: 0.85rem;
-  color: var(--text-color);
+  color: var(--text-muted-color);
 }
 
 .education-item, .experience-item {
@@ -340,7 +340,7 @@ title: About
     flex-direction: column;
     text-align: center;
   }
-  
+
   .education-header, .experience-header {
     flex-direction: column;
     align-items: flex-start;
@@ -374,7 +374,7 @@ let typingSpeed = 100;
 function type() {
   const currentText = texts[textIndex];
   const typingElement = document.getElementById('typingText');
-  
+
   if (isDeleting) {
     typingElement.textContent = currentText.substring(0, charIndex - 1);
     charIndex--;
@@ -384,7 +384,7 @@ function type() {
     charIndex++;
     typingSpeed = 100;
   }
-  
+
   if (!isDeleting && charIndex === currentText.length) {
     isDeleting = true;
     typingSpeed = 2000; // 停留2秒
@@ -393,7 +393,7 @@ function type() {
     textIndex = (textIndex + 1) % texts.length;
     typingSpeed = 500; // 切换前停留0.5秒
   }
-  
+
   setTimeout(type, typingSpeed);
 }
 

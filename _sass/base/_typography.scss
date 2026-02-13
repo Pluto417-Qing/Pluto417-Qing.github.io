@@ -30,6 +30,19 @@
     } @else {
       font-size: 1.05rem;
     }
+
+    // Different colors for different heading levels
+    @if $i == 1 {
+      color: var(--heading-h1-color, #2563eb); // Blue
+    } @else if $i == 2 {
+      color: var(--heading-h2-color, #7c3aed); // Purple
+    } @else if $i == 3 {
+      color: var(--heading-h3-color, #dc2626); // Red
+    } @else if $i == 4 {
+      color: var(--heading-h4-color, #ea580c); // Orange
+    } @else if $i == 5 {
+      color: var(--heading-h5-color, #059669); // Green
+    }
   }
 }
 
@@ -67,6 +80,8 @@ blockquote {
     position: relative;
     padding: 1rem 1rem 1rem 3rem;
     color: var(--prompt-text-color);
+    font-size: 1rem;
+    line-height: 1.6;
 
     @extend %rounded;
 
@@ -78,6 +93,21 @@ blockquote {
       margin-top: 0.4rem;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: inherit;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // 针对英文字体增大字号
+    &:lang(en) {
+      font-size: 1.1rem;
     }
   }
 

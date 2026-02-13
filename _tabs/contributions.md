@@ -120,7 +120,7 @@ title: Open Source
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-size: 0.75rem;
-  color: var(--text-color);
+  color: var(--text-muted-color);
 }
 
 .contributions-intro {

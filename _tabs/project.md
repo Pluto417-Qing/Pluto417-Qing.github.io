@@ -75,7 +75,7 @@ title: Projects
   padding: 0.15rem 0.5rem;
   border-radius: 3px;
   font-size: 0.75rem;
-  color: var(--text-color);
+  color: var(--text-muted-color);
 }
 </style>
 

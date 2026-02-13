@@ -298,7 +298,7 @@ order: 4
   background: var(--tag-bg, #f6f8fa);
   border-radius: 12px;
   font-size: 0.85rem;
-  color: var(--text-color);
+  color: var(--text-muted-color);
 }
 
 .goal-progress {

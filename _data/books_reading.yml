@@ -33,3 +33,11 @@ books:
     url: /books/book-head-first-java/
     cover_image: /assets/img/books/head-first-java.png
     cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+
+  - title: Retrieval Augmented Generation
+    author: Abhinav Kimothi
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-rag-intro/
+    cover_image: /assets/img/books/rag-intro.png
+    cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"

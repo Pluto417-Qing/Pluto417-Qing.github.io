@@ -169,6 +169,7 @@ title: Reading List
   display: inline-block;
   padding: 0.15rem 0.5rem;
   background: var(--tag-bg, #f6f8fa);
+  color: var(--text-muted-color);
   border-radius: 10px;
   font-size: 0.75rem;
   margin-top: 0.3rem;
