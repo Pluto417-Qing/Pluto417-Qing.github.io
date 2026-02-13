@@ -157,6 +157,8 @@ main {
   }
 
   p {
+    text-indent: 2em;
+
     > a.popup {
       &:not(.normal):not(.left):not(.right) {
         @include mx.align-center;
