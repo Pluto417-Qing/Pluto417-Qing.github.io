@@ -1,0 +1,75 @@
+# Open Source Contributions
+# Edit this file to update your open source contributions showcase
+
+contributions:
+  - name: VS Code
+    repo: microsoft/vscode
+    desc: The popular open source code editor. Contributing bug fixes and feature improvements.
+    type: Contributor
+    type_class: type-contributor
+    url: https://github.com/microsoft/vscode
+    icon: 💻
+    stats:
+      prs: 5
+      issues: 3
+    tech:
+      - TypeScript
+      - Electron
+      - Node.js
+
+  - name: React
+    repo: facebook/react
+    desc: A JavaScript library for building user interfaces. Helped improve documentation and fix bugs.
+    type: Contributor
+    type_class: type-contributor
+    url: https://github.com/facebook/react
+    icon: ⚛️
+    stats:
+      prs: 3
+      issues: 2
+    tech:
+      - JavaScript
+      - React
+
+  - name: Jekyll Theme Chirpy
+    repo: cotes2020/jekyll-theme-chirpy
+    desc: A minimal, responsive and feature-rich Jekyll theme for technical writing.
+    type: Collaborator
+    type_class: type-collaborator
+    url: https://github.com/cotes2020/jekyll-theme-chirpy
+    icon: 🎨
+    stats:
+      prs: 8
+      commits: 15
+    tech:
+      - Ruby
+      - Jekyll
+      - SCSS
+
+  - name: TensorFlow
+    repo: tensorflow/tensorflow
+    desc: An end-to-end open source platform for machine learning. Contributing to documentation.
+    type: Contributor
+    type_class: type-contributor
+    url: https://github.com/tensorflow/tensorflow
+    icon: 🧠
+    stats:
+      prs: 2
+      issues: 1
+    tech:
+      - Python
+      - C++
+      - Machine Learning
+
+  - name: Awesome Python
+    repo: vinta/awesome-python
+    desc: A curated list of awesome Python frameworks, libraries and resources.
+    type: Contributor
+    type_class: type-contributor
+    url: https://github.com/vinta/awesome-python
+    icon: 🐍
+    stats:
+      prs: 4
+    tech:
+      - Python
+      - Documentation

@@ -1,0 +1,448 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<article class="px-1">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-desc fw-light mb-4">{{ page.description }}</p>
+    {% endif %}
+
+    <div class="post-meta text-muted mb-4">
+      <span>
+        {{ site.data.locales[lang].post.posted }}
+        {% include datetime.html date=page.date tooltip=true lang=lang %}
+      </span>
+    </div>
+  </header>
+
+  <!-- 项目信息卡片 -->
+  {% if page.contribution_info %}
+  <div class="contribution-info-card mb-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="contribution-header-section">
+          <div class="contribution-icon-large">{{ page.contribution_info.icon }}</div>
+          <div class="contribution-title-section">
+            <h2>{{ page.contribution_info.name }}</h2>
+            <p class="repo-name">
+              <i class="fab fa-github"></i> {{ page.contribution_info.repo }}
+            </p>
+          </div>
+        </div>
+
+        <div class="contribution-stats-row">
+          {% if page.contribution_info.stats %}
+            {% if page.contribution_info.stats.prs %}
+            <div class="stat-box">
+              <div class="stat-number">{{ page.contribution_info.stats.prs }}</div>
+              <div class="stat-label">Pull Requests</div>
+            </div>
+            {% endif %}
+            {% if page.contribution_info.stats.issues %}
+            <div class="stat-box">
+              <div class="stat-number">{{ page.contribution_info.stats.issues }}</div>
+              <div class="stat-label">Issues</div>
+            </div>
+            {% endif %}
+            {% if page.contribution_info.stats.commits %}
+            <div class="stat-box">
+              <div class="stat-number">{{ page.contribution_info.stats.commits }}</div>
+              <div class="stat-label">Commits</div>
+            </div>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {% if page.contribution_info.tech %}
+        <div class="tech-stack-section">
+          <h4>Tech Stack</h4>
+          <div class="tech-tags">
+            {% for tech in page.contribution_info.tech %}
+            <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if page.contribution_info.url %}
+        <div class="repo-link-section">
+          <a href="{{ page.contribution_info.url }}" class="repo-link-btn" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- 贡献详情卡片列表 -->
+  <div class="contribution-details-section">
+    <h2>My Contributions</h2>
+
+    {% assign contribution_slug = page.slug | default: page.title %}
+    {% assign details = site.contribution_details | where: "contribution_id", page.contribution_id | sort: "date" | reverse %}
+
+    {% if details.size > 0 %}
+    <div class="details-grid">
+      {% for detail in details %}
+      <a href="{{ detail.url | relative_url }}" class="detail-card">
+        <div class="detail-card-header">
+          <div class="detail-type-row">
+            <span class="type-badge type-{{ detail.type }}">
+              {% if detail.type == 'pr' %}
+                <i class="fas fa-code-branch"></i> Pull Request
+              {% elsif detail.type == 'issue' %}
+                <i class="fas fa-exclamation-circle"></i> Issue
+              {% elsif detail.type == 'fix' %}
+                <i class="fas fa-wrench"></i> Bug Fix
+              {% elsif detail.type == 'feature' %}
+                <i class="fas fa-star"></i> Feature
+              {% elsif detail.type == 'doc' %}
+                <i class="fas fa-book"></i> Documentation
+              {% else %}
+                <i class="fas fa-code"></i> {{ detail.type }}
+              {% endif %}
+            </span>
+            {% if detail.status %}
+            <span class="status-badge status-{{ detail.status }}">{{ detail.status }}</span>
+            {% endif %}
+          </div>
+          <h3 class="detail-title">{{ detail.title }}</h3>
+        </div>
+
+        {% if detail.description or detail.excerpt %}
+        <div class="detail-summary">
+          {{ detail.description | default: detail.excerpt | strip_html | truncatewords: 25 }}
+        </div>
+        {% endif %}
+
+        <div class="detail-meta">
+          <span class="detail-date">
+            <i class="far fa-calendar"></i>
+            {% include datetime.html date=detail.date lang=lang %}
+          </span>
+          {% if detail.tags %}
+          <div class="detail-tags">
+            {% for tag in detail.tags limit:4 %}
+            <span class="tag-badge">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <p class="text-muted">No contribution details yet</p>
+    </div>
+    {% endif %}
+  </div>
+</article>
+
+<style>
+.contribution-info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contribution-header-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contribution-icon-large {
+  font-size: 4rem;
+}
+
+.contribution-title-section h2 {
+  margin: 0;
+  color: var(--heading-color);
+  font-size: 2rem;
+}
+
+.repo-name {
+  color: var(--text-muted-color);
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+}
+
+.contribution-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: var(--card-header-bg, #f6f8fa);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--link-color);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+  margin-top: 0.25rem;
+}
+
+.tech-stack-section {
+  margin-bottom: 1.5rem;
+}
+
+.tech-stack-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--heading-color);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: var(--tag-bg, #f6f8fa);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.repo-link-section {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.repo-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--link-color);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.repo-link-btn:hover {
+  background: var(--link-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.contribution-details-section {
+  margin-top: 3rem;
+}
+
+.contribution-details-section h2 {
+  color: var(--heading-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-color: var(--link-color);
+  text-decoration: none;
+}
+
+.detail-card-header {
+  margin-bottom: 1rem;
+}
+
+.detail-type-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.type-pr {
+  background: #ddf4ff;
+  color: #0969da;
+}
+
+.type-issue {
+  background: #fff8c5;
+  color: #9a6700;
+}
+
+.type-fix {
+  background: #ffebe9;
+  color: #d1242f;
+}
+
+.type-feature {
+  background: #e4e2ff;
+  color: #5e41d0;
+}
+
+.type-doc {
+  background: #d1f4e0;
+  color: #0e6537;
+}
+
+.status-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.status-merged {
+  background: #d1f4e0;
+  color: #0e6537;
+}
+
+.status-open {
+  background: #ddf4ff;
+  color: #0969da;
+}
+
+.status-closed {
+  background: #f6f8fa;
+  color: #656d76;
+}
+
+.detail-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--heading-color);
+  line-height: 1.4;
+}
+
+.detail-summary {
+  color: var(--text-muted-color);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.detail-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+  gap: 1rem;
+}
+
+.detail-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.detail-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.tag-badge {
+  background: var(--tag-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: var(--card-bg);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contribution-info-card {
+    padding: 1.5rem;
+  }
+
+  .contribution-header-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contribution-stats-row {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .detail-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-tags {
+    justify-content: flex-start;
+  }
+}
+</style>

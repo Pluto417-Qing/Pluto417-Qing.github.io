@@ -183,6 +183,12 @@ collections:
   goals:
     output: true
     permalink: /goals/:title/
+  contributions:
+    output: true
+    permalink: /contributions/:title/
+  contribution_details:
+    output: true
+    permalink: /contribution-details/:title/
 
 defaults:
   - scope:
@@ -223,6 +229,20 @@ defaults:
   - scope:
       path: ""
       type: goals
+    values:
+      layout: post
+      comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: contributions
+    values:
+      layout: contribution
+      comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: contribution_details
     values:
       layout: post
       comments: true

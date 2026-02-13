@@ -5,15 +5,15 @@ study:
   - title: 掌握 TypeScript 高级特性
     desc: 深入学习 TypeScript 的泛型、装饰器、类型推断等高级特性，并在项目中应用
     tag: 前端开发
-    progress: 100
+    progress: 0
     deadline: Q1 2026
-    completed: true
+    completed: false
     url: /goals/typescript-advanced
 
   - title: 学习 Rust 编程语言
     desc: 完成 Rust 官方教程，做 3 个实战项目，理解所有权、生命周期等核心概念
     tag: 系统编程
-    progress: 60
+    progress: 0
     deadline: Q2 2026
     completed: false
     url: /goals/learn-rust
@@ -21,7 +21,7 @@ study:
   - title: 深入学习 Docker 与 Kubernetes
     desc: 掌握容器化部署，学习 K8s 集群管理，完成微服务架构实践项目
     tag: DevOps
-    progress: 40
+    progress: 0
     deadline: Q3 2026
     completed: false
     url: /goals/docker-kubernetes
@@ -29,7 +29,7 @@ study:
   - title: 完成机器学习课程
     desc: 学习吴恩达机器学习课程，掌握基础算法，完成至少 5 个 Kaggle 竞赛
     tag: AI/ML
-    progress: 20
+    progress: 0
     deadline: 全年
     completed: false
     url: /goals/machine-learning
@@ -46,7 +46,7 @@ study:
   - title: 阅读 10 本技术书籍
     desc: 包括《设计模式》《架构整洁之道》《深入理解计算机系统》等经典书籍
     tag: 阅读计划
-    progress: 30
+    progress: 0
     progress_text: 3/10
     deadline: 全年
     completed: false
@@ -63,7 +63,7 @@ project:
   - title: 开发一个全栈应用
     desc: 前端使用 React + TypeScript，后端使用 Node.js，实现完整的用户系统和数据管理
     tag: 进行中
-    progress: 50
+    progress: 0
     deadline: Q2 2026
     completed: false
     url: /goals/fullstack-app
@@ -88,16 +88,16 @@ career:
   - title: 撰写 20 篇技术博客
     desc: 定期分享学习心得和技术总结，提升技术影响力
     tag: 内容创作
-    progress: 50
+    progress: 0
     progress_text: 10/20
     deadline: 全年
-    completed: true
+    completed: false
     url: /goals/tech-blogging
 
   - title: 参加 3 次技术分享会
     desc: 在公司或技术社区进行技术分享，锻炼演讲和表达能力
     tag: 分享交流
-    progress: 33
+    progress: 0
     progress_text: 1/3
     deadline: 全年
     completed: false

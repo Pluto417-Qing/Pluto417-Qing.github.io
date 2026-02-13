@@ -23,7 +23,12 @@
     "lint:scss": "stylelint _sass/**/*.scss",
     "lint:fix:scss": "npm run lint:scss -- --fix",
     "test": "npm run lint:js && npm run lint:scss",
-    "prepare": "husky"
+    "prepare": "husky",
+    "obsidian:setup": "powershell -File tools/obsidian-sync.ps1 -Setup",
+    "obsidian:watch": "powershell -File tools/obsidian-sync.ps1 -Watch",
+    "obsidian:sync": "powershell -File tools/obsidian-sync.ps1 -Batch",
+    "obsidian:install": "powershell -File tools/install-sync-tools.ps1",
+    "obsidian:test-cdn": "powershell -File tools/test-github-cdn.ps1"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
