@@ -78,6 +78,10 @@
   --kbd-text-color: #d3d3d3;
   --kbd-bg-color: #242424;
   --prompt-text-color: rgb(216 212 212 / 75%);
+  --prompt-font-family:
+    'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
+  --prompt-border-color: rgb(148 163 184 / 22%);
   --prompt-tip-bg: rgb(22 60 36 / 64%);
   --prompt-tip-icon-color: rgb(15 164 15 / 81%);
   --prompt-info-bg: rgb(7 59 104 / 80%);

@@ -14,7 +14,7 @@
   <span class="url-card-wrapper">
     {%- if include.image -%}
     <span class="url-card-image">
-      <img src="{{ include.image }}" alt="{{ include.title | default: 'Preview' }}" loading="lazy">
+      <img src="{{ include.image }}" alt="{{ include.title | default: 'Preview' }}" class="url-card-preview no-popup" loading="lazy">
     </span>
     {%- endif -%}
 

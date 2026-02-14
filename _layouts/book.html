@@ -19,6 +19,20 @@ layout: default
     </div>
   </header>
 
+  {% assign reviews = site.book_reviews | where: "book_id", page.book_id | sort: "date" | reverse %}
+  {% if reviews.size > 0 %}
+  <section class="book-reviews-section mb-5">
+    {% for review in reviews %}
+    <article class="book-review-card mb-4">
+      <div class="book-review-content">
+        {% capture review_html %}{{ review.content | markdownify }}{% endcapture %}
+        {% include refactor-content.html content=review_html lang=lang %}
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
   <!-- 章节笔记卡片列表 -->
   <div class="chapter-notes-section">
 
@@ -67,10 +81,43 @@ layout: default
 </article>
 
 <style>
+.book-reviews-section h2,
 .chapter-notes-section h2 {
   color: var(--heading-color);
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 0.5rem;
+}
+
+.book-review-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.book-review-title {
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.book-review-meta {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.book-review-content {
+  line-height: 1.8;
+}
+
+.book-review-content p {
+  text-indent: 2em;
+}
+
+.book-review-content > :last-child {
+  margin-bottom: 0;
 }
 
 .notes-grid {

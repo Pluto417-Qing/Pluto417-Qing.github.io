@@ -80,8 +80,11 @@ blockquote {
     position: relative;
     padding: 1rem 1rem 1rem 3rem;
     color: var(--prompt-text-color);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-family: var(--prompt-font-family);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    box-shadow: inset 0 0 0 1px var(--prompt-border-color);
 
     @extend %rounded;
 
@@ -97,8 +100,9 @@ blockquote {
     }
 
     p {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       font-size: inherit;
+      text-indent: 0;
 
       &:last-child {
         margin-bottom: 0;
@@ -107,7 +111,7 @@ blockquote {
 
     // 针对英文字体增大字号
     &:lang(en) {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 

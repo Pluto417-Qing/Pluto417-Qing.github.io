@@ -77,6 +77,8 @@
 
       .post-meta {
         @extend %muted;
+        flex-grow: 0 !important;
+        margin-top: 0.35rem;
 
         i {
           &:not(:first-child) {

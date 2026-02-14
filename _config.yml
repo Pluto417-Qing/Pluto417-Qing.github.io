@@ -177,6 +177,8 @@ collections:
   book_notes:
     output: true
     permalink: /book-notes/:title/
+  book_reviews:
+    output: false
   projects:
     output: true
     permalink: /projects/:title/
@@ -219,6 +221,12 @@ defaults:
       layout: book-note
       comments: true
       toc: true
+  - scope:
+      path: ""
+      type: book_reviews
+    values:
+      comments: false
+      toc: false
   - scope:
       path: ""
       type: projects

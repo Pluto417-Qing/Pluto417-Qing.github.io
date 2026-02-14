@@ -130,12 +130,12 @@ main {
 }
 
 .content {
-  font-size: 1.08rem;
+  font-size: 1.4rem;
   margin-top: 2rem;
   overflow-wrap: break-word;
 
   @include bp.xl {
-    font-size: 1.03rem;
+    font-size: 1.3rem;
   }
 
   a {
@@ -369,7 +369,9 @@ main {
   box-shadow: none;
   border-color: var(--input-focus-border-color) !important;
   background: center !important;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .left {
