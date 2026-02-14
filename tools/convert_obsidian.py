@@ -113,10 +113,10 @@ def _collect_callout_body(lines: list, start_idx: int) -> tuple:
            >                    ← empty quote line
            content line 1       ← no > prefix, but belongs to callout
            content line 2
-    3. Continuation without `>` prefix after a list-item `>` line:
-           > [!example] Title
-           > ● item 1           ← quoted bullet
-           ● item 2             ← unquoted bullet, continuation
+        3. Continuation without `>` prefix after a list-item `>` line:
+            > [!example] Title
+            > ● item 1           ← quoted bullet
+            ● item 2             ← unquoted bullet, continuation (legacy behavior)
     4. Immediate continuation after callout marker:
            > [!type]
            content line         ← no > prefix, immediately after marker
@@ -130,6 +130,8 @@ def _collect_callout_body(lines: list, start_idx: int) -> tuple:
     - A `---` horizontal rule
     - A new callout start `> [!type]`
     - A heading line starting with `#`
+    - A markdown list item (e.g. `- item`, `* item`, `+ item`)
+    - A fenced code block marker (``` or ~~~)
 
     Returns:
         (body_lines, next_index)
@@ -175,6 +177,13 @@ def _collect_callout_body(lines: list, start_idx: int) -> tuple:
                     break
                 # Numbered list items (1. 2. etc.) are always OUTSIDE the callout
                 if re.match(r'^\d+\.\s', cur):
+                    break
+                # Markdown bullet lists are outside by default to avoid
+                # swallowing adjacent normal list content.
+                if re.match(r'^\s*[-\*+]\s', cur):
+                    break
+                # Fenced code blocks should never be absorbed into callout body.
+                if re.match(r'^\s*(```|~~~)', cur):
                     break
                 # Jekyll prompt markers should not be included
                 if cur.strip().startswith('{: .prompt-'):
@@ -354,6 +363,98 @@ def normalize_block_spacing(content: str) -> str:
 
 
 # ─────────────────────────────────────────────────────────────
+# Repair misplaced prompt marker
+# ─────────────────────────────────────────────────────────────
+def repair_misplaced_prompt_markers(content: str) -> str:
+    """Move misplaced `{: .prompt-* }` out of fenced code blocks.
+
+    Sometimes a converted callout is followed by a fenced code block and the
+    prompt marker is accidentally placed as the first line *inside* the fence:
+
+        > ...
+        ```python
+        {: .prompt-danger }
+        ...
+
+    It should be:
+
+        > ...
+        {: .prompt-danger }
+
+        ```python
+        ...
+
+    This fixer is conservative:
+    - Only triggers when the line right after a fence opener is a prompt marker.
+    - Only moves it when there is a blockquote immediately above the fence
+      (ignoring blank lines), indicating it belongs to the callout.
+    """
+    lines = content.split('\n')
+    result = []
+    i = 0
+
+    while i < len(lines):
+        line = lines[i]
+
+        if re.match(r'^\s*(```|~~~)', line):
+            marker_idx = i + 1
+
+            # Skip leading blank lines inside fence header area
+            while marker_idx < len(lines) and lines[marker_idx].strip() == '':
+                marker_idx += 1
+
+            if marker_idx < len(lines) and re.match(r'^\{:\s*\.prompt-[^}]+\}$', lines[marker_idx].strip()):
+                # Find previous non-empty line outside current position
+                prev_idx = i - 1
+                while prev_idx >= 0 and lines[prev_idx].strip() == '':
+                    prev_idx -= 1
+
+                # Only move marker if preceding block is a blockquote/callout
+                if prev_idx >= 0 and lines[prev_idx].lstrip().startswith('>'):
+                    result.append(lines[marker_idx])
+                    result.append('')
+                    result.append(line)
+                    i += 1
+                    while i < marker_idx:
+                        result.append(lines[i])
+                        i += 1
+                    i = marker_idx + 1
+                    continue
+
+        result.append(line)
+        i += 1
+
+    return '\n'.join(result)
+
+
+def bind_prompt_markers_to_blockquotes(content: str) -> str:
+    """Ensure `{: .prompt-* }` lines are directly attached to blockquotes.
+
+    Kramdown only applies block attributes when the attribute line immediately
+    follows the block. If there is a blank line between the blockquote and the
+    prompt marker, Chirpy prompt styles will not render.
+    """
+    lines = content.split('\n')
+    result = []
+
+    for line in lines:
+        if re.match(r'^\{:\s*\.prompt-[^}]+\}$', line.strip()):
+            # If marker belongs to the preceding blockquote, remove any blank
+            # lines accidentally inserted between them.
+            j = len(result) - 1
+            while j >= 0 and result[j].strip() == '':
+                j -= 1
+
+            if j >= 0 and result[j].lstrip().startswith('>'):
+                while result and result[-1].strip() == '':
+                    result.pop()
+
+        result.append(line)
+
+    return '\n'.join(result)
+
+
+# ─────────────────────────────────────────────────────────────
 # Main conversion pipeline
 # ─────────────────────────────────────────────────────────────
 def convert_obsidian_to_jekyll(content: str) -> str:
@@ -363,6 +464,8 @@ def convert_obsidian_to_jekyll(content: str) -> str:
     content = normalize_bullets(content)
     content = normalize_headings(content)
     content = normalize_block_spacing(content)
+    content = repair_misplaced_prompt_markers(content)
+    content = bind_prompt_markers_to_blockquotes(content)
     return content
 
 
