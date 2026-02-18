@@ -29,7 +29,7 @@ Term Frequency–Inverse Document Frequency (TF-IDF) is a statistical measure us
 ```python
 
 # Install or Upgrade Scikit-learn
-%pip install –-upgrade scikit-learn
+%pip install --upgrade scikit-learn
 
 # Import TFIDFRetriever class from retrievers library
 from langchain_community.retrievers import TFIDFRetriever
