@@ -1,14 +1,5 @@
 # 正在阅读的书籍
 books:
-  - title: 程序员的职业素养
-    title_en: The Clean Coder - A Code of Conduct for Professional Programmers
-    author: Robert C. Martin
-    category: computer
-    category_cn: 计算机科学
-    url: /books/book-clean-coder/
-    cover_image: /assets/img/books/clean-code.png
-    cover_gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
-
   - title: 基于大模型的RAG应用开发与优化 - 构建企业级LLM应用
     author: 严灿平
     category: computer

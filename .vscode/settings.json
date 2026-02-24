@@ -28,5 +28,25 @@
     "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
   },
   // Disable spell checker
-  "cSpell.enabled": false
+  "cSpell.enabled": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#e1da9a",
+    "activityBar.background": "#e1da9a",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#2c9389",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#e1da9a",
+    "statusBar.background": "#d5cb73",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#c9bc4c",
+    "statusBarItem.remoteBackground": "#d5cb73",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#d5cb73",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#d5cb7399",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#d5cb73"
 }

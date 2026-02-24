@@ -7,7 +7,7 @@ layout: book-note
 book_id: clean-coder
 chapter: 2
 toc: true
-
+summary: 什么时候应该说“不”
 ---
 
 > **尤达**
