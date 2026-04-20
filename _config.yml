@@ -188,6 +188,9 @@ collections:
   contributions:
     output: true
     permalink: /contributions/:title/
+  daily_readings:
+    output: true
+    permalink: /daily-readings/:title/
   contribution_details:
     output: true
     permalink: /contribution-details/:title/
@@ -246,6 +249,13 @@ defaults:
       type: contributions
     values:
       layout: contribution
+      comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: daily_readings
+    values:
+      layout: post
       comments: true
       toc: true
   - scope:
