@@ -10,9 +10,9 @@
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
 
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
+- type: csdn
+  icon: "fa-solid fa-c"
+  url: "https://blog.csdn.net/2604_94848121?spm=1010.2135.3001.10640"
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon

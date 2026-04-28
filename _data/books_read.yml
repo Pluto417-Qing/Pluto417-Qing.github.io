@@ -1,5 +1,14 @@
 # 已读完的书籍
 books:
+  - title: Hands-On Large Language Models
+    title_en: Hands-On Large Language Models
+    author: Jay Alammar, Maarten Grootendorst
+    category: computer
+    category_cn: 计算机科学
+    url: /books/book-hands-on-llm/
+    cover_image: /assets/img/books/Hands-On-Large-Language-Models-Cover.png
+    cover_gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+
   - title: 软技能-代码之外的生存指南
     title_en: Soft Skills - The Software Developer's Life Manual
     author: John Z. Sonmez 约翰Z.森梅兹

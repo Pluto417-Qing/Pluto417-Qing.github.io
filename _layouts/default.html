@@ -54,7 +54,9 @@ layout: compress
               {% include {{ _include_path }} lang=lang %}
             {% endfor %}
 
-            {% include_cached footer.html lang=lang %}
+            {% comment %}
+              {% include_cached footer.html lang=lang %}
+            {% endcomment %}
           </div>
         </div>
 

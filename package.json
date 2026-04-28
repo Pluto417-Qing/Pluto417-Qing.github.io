@@ -24,6 +24,7 @@
     "lint:fix:scss": "npm run lint:scss -- --fix",
     "test": "npm run lint:js && npm run lint:scss",
     "prepare": "husky",
+    "serve": "bundle exec jekyll serve --watch",
     "obsidian:setup": "powershell -File tools/obsidian-sync.ps1 -Setup",
     "obsidian:watch": "powershell -File tools/obsidian-sync.ps1 -Watch",
     "obsidian:sync": "powershell -File tools/obsidian-sync.ps1 -Batch",

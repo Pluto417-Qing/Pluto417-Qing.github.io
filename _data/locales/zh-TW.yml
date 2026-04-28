@@ -11,10 +11,9 @@ layout:
 tabs:
   # format: <filename_without_extension>: <value>
   home: 首頁
-  categories: 分類
-  tags: 標籤
-  archives: 封存
   about: 關於
+  papers: 論文
+  courses: 課程
 
 # the text displayed in the search bar & search results
 search:

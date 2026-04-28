@@ -194,6 +194,9 @@ collections:
   contribution_details:
     output: true
     permalink: /contribution-details/:title/
+  courses:
+    output: true
+    permalink: /courses/:title/
 
 defaults:
   - scope:
@@ -263,6 +266,13 @@ defaults:
       type: contribution_details
     values:
       layout: post
+      comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: courses
+    values:
+      layout: course
       comments: true
       toc: true
   - scope:

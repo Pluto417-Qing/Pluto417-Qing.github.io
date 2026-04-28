@@ -1,0 +1,122 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<article class="px-1">
+  <header>
+    <h1 class="dynamic-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="content mt-4">
+    {{ content }}
+
+    {% if page.sections %}
+    <div class="course-sections mt-5">
+      <style>
+        .section-tabs {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          margin-bottom: 2.5rem;
+          border-bottom: 1px solid var(--border-color);
+          padding: 0;
+          background: transparent;
+          border-radius: 0;
+        }
+        .section-tab {
+          padding: 0.75rem 0;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+          font-weight: 600;
+          color: var(--text-muted);
+          font-size: 0.95rem;
+          position: relative;
+          text-align: center;
+        }
+        .section-tab::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--link-color);
+          transition: width 0.3s ease;
+        }
+        .section-tab:hover {
+          color: var(--link-color);
+          background: transparent;
+        }
+        .section-tab.active {
+          color: var(--link-color);
+          background: transparent;
+          box-shadow: none;
+        }
+        .section-tab.active::after {
+          width: 100%;
+        }
+        .section-content {
+          display: none;
+          padding: 1.5rem;
+          background: var(--main-bg);
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          line-height: 1.8;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .section-content.active {
+          display: block;
+          animation: slideUp 0.4s ease-out;
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 576px) {
+          .section-content {
+            padding: 1.25rem;
+          }
+        }
+      </style>
+
+      <div class="section-tabs" id="course-section-tabs">
+        {% for section in page.sections %}
+        <div class="section-tab {% if forloop.first %}active{% endif %}" data-target="section-{{ forloop.index }}">
+          {{ section.name }}
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="section-contents">
+        {% for section in page.sections %}
+        <div class="section-content {% if forloop.first %}active{% endif %}" id="section-{{ forloop.index }}">
+          {{ section.content | markdownify }}
+        </div>
+        {% endfor %}
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const tabs = document.querySelectorAll('.section-tab');
+          const contents = document.querySelectorAll('.section-content');
+
+          tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+              const targetId = tab.getAttribute('data-target');
+
+              tabs.forEach(t => t.classList.remove('active'));
+              contents.forEach(c => c.classList.remove('active'));
+
+              tab.classList.add('active');
+              document.getElementById(targetId).classList.add('active');
+            });
+          });
+        });
+      </script>
+    </div>
+    {% endif %}
+  </div>
+</article>

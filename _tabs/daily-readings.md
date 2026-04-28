@@ -2,7 +2,7 @@
 layout: page
 icon: fas fa-share-alt
 order: 5
-title: Daily Reading Sharing
+title: Daily Reading
 ---
 
 <style>

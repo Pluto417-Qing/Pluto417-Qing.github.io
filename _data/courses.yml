@@ -1,0 +1,80 @@
+sources:
+  - id: tsinghua
+    name: "清华大学"
+    icon: "fas fa-university"
+    categories:
+      - id: embedded-systems
+        name: "嵌入式系统"
+        courses:
+          - id: intro-embedded
+            name: "嵌入式系统导论"
+            sections:
+              - id: major-project
+                name: "大作业"
+                content: "这里展示嵌入式系统导论的大作业详细内容，包括设计文档、源代码链接和演示视频。"
+              - id: daily-assignment
+                name: "日常作业"
+                content: "这里记录每章节后的练习题、实验报告以及平时的小测试。"
+      - id: software-engineering
+        name: "软件工程"
+        courses:
+          - id: se-fundamentals
+            name: "软件工程原理"
+            sections:
+              - id: group-project
+                name: "小组项目"
+                content: "软件工程原理的小组合作项目，包括需求分析、架构设计和敏捷开发过程。"
+              - id: homework
+                name: "课后作业"
+                content: "软件工程相关的理论作业和案例分析。"
+
+  - id: mit
+    name: "MIT"
+    icon: "fas fa-graduation-cap"
+    categories:
+      - id: computer-science
+        name: "Computer Science"
+        courses:
+          - id: 6-001
+            name: "6.001 Structure and Interpretation of Computer Programs"
+            sections:
+              - id: lab
+                name: "Labs"
+                content: "MIT 6.001 的实验室练习内容。"
+              - id: problem-sets
+                name: "Problem Sets"
+                content: "MIT 6.001 的习题集。"
+
+  - id: berkeley
+    name: "Berkeley"
+    icon: "fas fa-school"
+    categories:
+      - id: eecs
+        name: "EECS"
+        courses:
+          - id: cs61a
+            name: "CS 61A: Structure and Interpretation of Computer Programs"
+            sections:
+              - id: projects
+                name: "Projects"
+                content: "Berkeley CS61A 的课程大项目。"
+              - id: homework
+                name: "Homework"
+                content: "Berkeley CS61A 的每周作业。"
+
+  - id: open-source
+    name: "Open Source"
+    icon: "fas fa-code-branch"
+    categories:
+      - id: full-stack
+        name: "Full Stack Development"
+        courses:
+          - id: odin-project
+            name: "The Odin Project"
+            sections:
+              - id: foundations
+                name: "Foundations"
+                content: "The Odin Project 的基础课程练习。"
+              - id: full-stack-js
+                name: "Full Stack JavaScript"
+                content: "JavaScript 全栈路径的项目和作业。"
